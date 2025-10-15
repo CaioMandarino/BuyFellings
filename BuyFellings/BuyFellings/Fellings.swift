@@ -34,4 +34,12 @@ enum Fellings {
         case affliction     = "com.CaioMandarino.BuyFellings.seasonal.affliction"
         case paranoia       = "com.CaioMandarino.BuyFellings.seasonal.paranoia"
     }
+    
+    static func allCases() -> [String] {
+        let bad: [String] = Fellings.Bad.allCases.map(\.rawValue)
+        let good: [String] = Fellings.Good.allCases.map(\.rawValue)
+        let seasonal: [String] = Fellings.Seasonal.allCases.map(\.rawValue)
+        
+        return bad + good + seasonal
+    }
 }
