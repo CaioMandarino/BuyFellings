@@ -11,7 +11,21 @@
   },
   "identifier" : "2DFD580A",
   "nonRenewingSubscriptions" : [
-
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "19C5122C",
+      "localizations" : [
+        {
+          "description" : "Halloween Season",
+          "displayName" : "HalloweenSeason",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.Season",
+      "referenceName" : "Season",
+      "type" : "NonRenewingSubscription"
+    }
   ],
   "products" : [
     {
@@ -20,9 +34,14 @@
       "internalID" : "EBCD5572",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Joy ",
+          "displayName" : "Joy",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Alegria",
+          "displayName" : "Alegria",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.good.joy",
@@ -35,9 +54,14 @@
       "internalID" : "31E7C7C7",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Love",
+          "displayName" : "Love",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Amor",
+          "displayName" : "Amor",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.good.love",
@@ -50,9 +74,14 @@
       "internalID" : "ECA5799A",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Enthusiasm",
+          "displayName" : "Enthusiasm",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Entusiasmo",
+          "displayName" : "Entusiasmo",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.good.enthusiasm",
@@ -65,9 +94,14 @@
       "internalID" : "51B670A6",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Patience",
+          "displayName" : "Patience",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Paciência",
+          "displayName" : "Paciência",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.good.patience",
@@ -80,9 +114,14 @@
       "internalID" : "E2403806",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Hope",
+          "displayName" : "Hope",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Esperança ",
+          "displayName" : "Esperança",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.good.hope",
@@ -95,9 +134,14 @@
       "internalID" : "2A600552",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Gratitude",
+          "displayName" : "Gratitude",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Gratidão",
+          "displayName" : "Gratidão",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.good.gratitude",
@@ -110,9 +154,14 @@
       "internalID" : "F12ECA04",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Anxiety",
+          "displayName" : "Anxiety",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Ansiedade",
+          "displayName" : "Ansiedade",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.bad.anxiety",
@@ -125,9 +174,14 @@
       "internalID" : "FE9FC985",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Sadness",
+          "displayName" : "Sadness",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Tristeza",
+          "displayName" : "Tristeza",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.bad.sadness",
@@ -140,9 +194,14 @@
       "internalID" : "21D19439",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Guilt",
+          "displayName" : "Guilt",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Culpa",
+          "displayName" : "Culpa",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.bad.guilt",
@@ -155,9 +214,14 @@
       "internalID" : "45A2ED42",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Anguish",
+          "displayName" : "Anguish",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Angústia",
+          "displayName" : "Angústia",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.bad.anguish",
@@ -170,9 +234,14 @@
       "internalID" : "69CFC7A7",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Shame",
+          "displayName" : "Shame",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Vergonha",
+          "displayName" : "Vergonha",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.bad.shame",
@@ -185,9 +254,14 @@
       "internalID" : "A80FA597",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Anger",
+          "displayName" : "Anger",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Raiva",
+          "displayName" : "Raiva",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.bad.anger",
@@ -200,8 +274,8 @@
       "internalID" : "9F449FA2",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Fear",
+          "displayName" : "Fear",
           "locale" : "en_US"
         }
       ],
@@ -215,9 +289,14 @@
       "internalID" : "91DD4CF2",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Creativity",
+          "displayName" : "Creativity",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Criatividade",
+          "displayName" : "Criatividade",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.seasonal.creativity",
@@ -230,9 +309,14 @@
       "internalID" : "C183F315",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Companionship",
+          "displayName" : "Companionship",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Companherismo",
+          "displayName" : "Companherismo",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.seasonal.companionship",
@@ -245,9 +329,14 @@
       "internalID" : "BB257FBF",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Fun",
+          "displayName" : "Fun",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Diversão",
+          "displayName" : "Diversão",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.seasonal.fun",
@@ -260,9 +349,14 @@
       "internalID" : "F3F236EB",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Affliction",
+          "displayName" : "Affliction",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Aflição",
+          "displayName" : "Aflição",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.seasonal.affliction",
@@ -275,9 +369,14 @@
       "internalID" : "E524A8AE",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Dose Of Paranoia",
+          "displayName" : "Paranoia",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Paranoia",
+          "displayName" : "Paranoia",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.seasonal.paranoia",
@@ -300,7 +399,47 @@
     "_timeRate" : 0
   },
   "subscriptionGroups" : [
+    {
+      "id" : "D78FD025",
+      "localizations" : [
+        {
+          "description" : "Premium Monthly",
+          "displayName" : "Premium Monthly",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "PremiumMonthly",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
 
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "9EEE2D26",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.CaioMandarino.BuyFellings.PremiumMonthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "PremiumMonthly",
+          "subscriptionGroupID" : "D78FD025",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
   ],
   "version" : {
     "major" : 4,
