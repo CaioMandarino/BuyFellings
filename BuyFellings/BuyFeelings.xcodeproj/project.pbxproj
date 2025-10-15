@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		DAFD27862EA01A0D003AB48E /* BuyFellings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyFellings.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAFD27862EA01A0D003AB48E /* BuyFeelings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyFeelings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -40,7 +40,7 @@
 		DAFD27872EA01A0D003AB48E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DAFD27862EA01A0D003AB48E /* BuyFellings.app */,
+				DAFD27862EA01A0D003AB48E /* BuyFeelings.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DAFD27852EA01A0D003AB48E /* BuyFellings */ = {
+		DAFD27852EA01A0D003AB48E /* BuyFeelings */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DAFD27912EA01A0E003AB48E /* Build configuration list for PBXNativeTarget "BuyFellings" */;
+			buildConfigurationList = DAFD27912EA01A0E003AB48E /* Build configuration list for PBXNativeTarget "BuyFeelings" */;
 			buildPhases = (
 				DAFD27822EA01A0D003AB48E /* Sources */,
 				DAFD27832EA01A0D003AB48E /* Frameworks */,
@@ -63,11 +63,11 @@
 			fileSystemSynchronizedGroups = (
 				DAFD27882EA01A0D003AB48E /* BuyFeelings */,
 			);
-			name = BuyFellings;
+			name = BuyFeelings;
 			packageProductDependencies = (
 			);
 			productName = BuyFellings;
-			productReference = DAFD27862EA01A0D003AB48E /* BuyFellings.app */;
+			productReference = DAFD27862EA01A0D003AB48E /* BuyFeelings.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DAFD27812EA01A0D003AB48E /* Build configuration list for PBXProject "BuyFellings" */;
+			buildConfigurationList = DAFD27812EA01A0D003AB48E /* Build configuration list for PBXProject "BuyFeelings" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DAFD27852EA01A0D003AB48E /* BuyFellings */,
+				DAFD27852EA01A0D003AB48E /* BuyFeelings */,
 			);
 		};
 /* End PBXProject section */
@@ -313,7 +313,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DAFD27812EA01A0D003AB48E /* Build configuration list for PBXProject "BuyFellings" */ = {
+		DAFD27812EA01A0D003AB48E /* Build configuration list for PBXProject "BuyFeelings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DAFD278F2EA01A0E003AB48E /* Debug */,
@@ -322,7 +322,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DAFD27912EA01A0E003AB48E /* Build configuration list for PBXNativeTarget "BuyFellings" */ = {
+		DAFD27912EA01A0E003AB48E /* Build configuration list for PBXNativeTarget "BuyFeelings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DAFD27922EA01A0E003AB48E /* Debug */,

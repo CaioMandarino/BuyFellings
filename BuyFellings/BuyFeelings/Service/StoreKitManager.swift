@@ -96,7 +96,7 @@ actor StoreKitManager {
 }
 
 // MARK: - Public API
-extension StoreKitManager {
+extension StoreKitManager: StoreKitProtocol {
     func purchase(product: ProductsIdentifiers) async throws -> PurchaseResults {
         guard let product = try? await Product.products(for: [product.rawValue]).first else {
             throw StoreKitErrors.productIDNotFound
@@ -121,7 +121,3 @@ extension StoreKitManager {
         refundedProducts.eraseToAnyPublisher()
     }
 }
-
-
-
-
