@@ -11,9 +11,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		DAFD27882EA01A0D003AB48E /* BuyFellings */ = {
+		DAFD27882EA01A0D003AB48E /* BuyFeelings */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BuyFellings;
+			path = BuyFeelings;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		DAFD277D2EA01A0D003AB48E = {
 			isa = PBXGroup;
 			children = (
-				DAFD27882EA01A0D003AB48E /* BuyFellings */,
+				DAFD27882EA01A0D003AB48E /* BuyFeelings */,
 				DAFD27872EA01A0D003AB48E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				DAFD27882EA01A0D003AB48E /* BuyFellings */,
+				DAFD27882EA01A0D003AB48E /* BuyFeelings */,
 			);
 			name = BuyFellings;
 			packageProductDependencies = (

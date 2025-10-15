@@ -7,10 +7,12 @@
 
 import Foundation
 import StoreKit
+import Combine
 
 actor StoreKitManager {
     
-    private var purchaseProducts: Set<ProductsIdentifiers> = []
+    @Published private var purchaseProducts: Set<ProductsIdentifiers> = []
+    private var refundedProducts: PassthroughSubject<ProductsIdentifiers, Never> = .init()
     
     private var taskObservePurchase: Task<Void, Never>? = nil
     
@@ -26,10 +28,6 @@ actor StoreKitManager {
         
         for await transaction in Transaction.currentEntitlements {
             guard let result = try? checkVerified(transaction) else { continue }
-            
-            if result.revocationDate != nil { continue }
-            if let date = result.expirationDate, date < Date() { continue }
-            
             await result.finish()
             guard let id = try? convertProductIdentifier(for: result.productID) else { continue }
             new.insert(id)
@@ -43,7 +41,13 @@ actor StoreKitManager {
             for await transaction in Transaction.updates {
                 guard let result = try? checkVerified(transaction) else { continue }
                 await result.finish()
-                await fetchPurchaseProducts()
+                guard let product = try? convertProductIdentifier(for: result.productID) else { continue }
+
+                if result.revocationDate != nil {
+                    refundedProducts.send(product)
+                } else if let date = result.expirationDate, date < Date() {
+                    refundedProducts.send(product)
+                }
             }
         }
     }
@@ -107,6 +111,14 @@ extension StoreKitManager {
         }
         
         return product.displayPrice 
+    }
+    
+    var publisherPurchaseProducts: AnyPublisher<Set<ProductsIdentifiers>, Never> {
+        $purchaseProducts.eraseToAnyPublisher()
+    }
+    
+    var publisherRefundedProducts: AnyPublisher<ProductsIdentifiers, Never> {
+        refundedProducts.eraseToAnyPublisher()
     }
 }
 
