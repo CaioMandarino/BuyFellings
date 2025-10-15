@@ -14,7 +14,96 @@
 
   ],
   "products" : [
-
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "EBCD5572",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.good.joy",
+      "referenceName" : "Joy",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "31E7C7C7",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.good.love",
+      "referenceName" : "Love",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "ECA5799A",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.good.enthusiasm",
+      "referenceName" : "Enthusiasm",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "51B670A6",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.good.patience",
+      "referenceName" : "Patience",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "E2403806",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.good.hope",
+      "referenceName" : "Hope",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "2A600552",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.good.gratitude",
+      "referenceName" : "Gratitude",
+      "type" : "Consumable"
+    }
   ],
   "settings" : {
     "_askToBuyEnabled" : false,
