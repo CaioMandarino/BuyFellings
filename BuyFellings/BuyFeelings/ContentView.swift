@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var viewModel = ContentViewModel(service: StoreKitManager() )
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Fears Count: \(viewModel.fearCount)")
+            
+            Button ("Buy Fear") {
+                Task {
+                    await viewModel.purchase()
+                }
+            }
         }
         .padding()
     }
