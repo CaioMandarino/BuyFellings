@@ -8,8 +8,10 @@
 import Foundation
 
 enum ProductsIdentifiers: String, CaseIterable {
-    case premium
-    case session
+    case premiumMonthly
+    case premiumQuarterly
+    case premiumYearly
+    case season
     
     // MARK: - Bad Feelings
     case anxiety  = "com.CaioMandarino.BuyFellings.bad.anxiety"
@@ -36,7 +38,7 @@ enum ProductsIdentifiers: String, CaseIterable {
     case creativity     = "com.CaioMandarino.BuyFellings.seasonal.creativity"
     case companionship  = "com.CaioMandarino.BuyFellings.seasonal.companionship"
     case fun            = "com.CaioMandarino.BuyFellings.seasonal.fun"
-
+    
     
     enum Categories {
         case badFeelings
@@ -57,5 +59,4 @@ enum ProductsIdentifiers: String, CaseIterable {
             return [.creativity, .fun, .companionship]
         }
     }
-
 }

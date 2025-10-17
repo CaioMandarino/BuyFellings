@@ -13,16 +13,8 @@ struct FeelingActivateScreen: View {
     let badFeelings = ProductsIdentifiers.feelings(for: .badFeelings)
     
     var body: some View {
-        
-        for feeling in goodFeelings {
-            Section {
-                FeelingActivateCard(
-                    bottle: "",
-                    feeling: "", // usar a funcão que gera os nomes
-                    timeInSeconds: "") {
-                        <#code#>
-                    }
-            }
+        VStack {
+            
         }
         
         

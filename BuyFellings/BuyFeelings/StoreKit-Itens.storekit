@@ -20,6 +20,11 @@
           "description" : "Halloween Season",
           "displayName" : "HalloweenSeason",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Halloween Season Pass",
+          "displayName" : "Halloween Season",
+          "locale" : "pt_BR"
         }
       ],
       "productID" : "com.CaioMandarino.BuyFellings.Season",
@@ -406,9 +411,14 @@
           "description" : "Premium Monthly",
           "displayName" : "Premium Monthly",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Premium Pass",
+          "displayName" : "Premium Pass",
+          "locale" : "pt_PT"
         }
       ],
-      "name" : "PremiumMonthly",
+      "name" : "Premium",
       "subscriptions" : [
         {
           "adHocOffers" : [
@@ -432,6 +442,62 @@
           "productID" : "com.CaioMandarino.BuyFellings.PremiumMonthly",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "PremiumMonthly",
+          "subscriptionGroupID" : "D78FD025",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "EE84132D",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.CaioMandarino.BuyFellings.PremiumQuarterly",
+          "recurringSubscriptionPeriod" : "P2M",
+          "referenceName" : "PremiumQuarterly",
+          "subscriptionGroupID" : "D78FD025",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "BC7F613A",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.CaioMandarino.BuyFelling.PremiumYearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "PremiumYearly",
           "subscriptionGroupID" : "D78FD025",
           "type" : "RecurringSubscription",
           "winbackOffers" : [
