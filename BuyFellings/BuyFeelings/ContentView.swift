@@ -16,10 +16,12 @@ struct ContentView: View {
             Text("Fears Count: \(viewModel.fearCount)")
             
             Button ("Buy Fear") {
-                Task {
-                    await viewModel.purchase()
-                }
+//                Task {
+//                    await viewModel.purchase()
+//                }
+                
             }
+            
         }
         .padding()
     }
