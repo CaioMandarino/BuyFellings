@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     
-    @StateObject private var viewModel = ContentViewModel(service: StoreKitManager() )
+    @ObservedObject var viewModel: ContentViewModel
     
     var body: some View {
         VStack {
-            Text("Fears Count: \(viewModel.fearCount)")
+            Text("Fun duration: \(viewModel.duration)")
             
-            Button ("Buy Fear") {
+            Button ("Buy Fun duration") {
                 Task {
                     await viewModel.purchase()
                 }
@@ -23,8 +24,4 @@ struct ContentView: View {
         }
         .padding()
     }
-}
-
-#Preview {
-    ContentView()
 }
