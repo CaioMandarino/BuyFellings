@@ -7,30 +7,38 @@
 
 import Foundation
 import Combine
+import SwiftData
 
 final class ContentViewModel: ObservableObject {
-    @Published var fearCount: Int {
-        willSet {
-            UserDefaults.standard.set(newValue, forKey: Keys.fearCount)
-        }
-    }
     
-    let service: any StoreKitProtocol
+    @Published var duration: TimeInterval
     
-    init(service: any StoreKitProtocol) {
-        self.service = service
-        fearCount = UserDefaults.standard.integer(forKey: Keys.fearCount)
+    var allEntities: [PurchasedFeelingsModel]
+    let paymentService: any StoreKitProtocol
+    let databaseService: any DatabaseProtocol
+    
+    init(paymentService: any StoreKitProtocol, databaseService: any DatabaseProtocol) {
+        self.paymentService = paymentService
+        self.databaseService = databaseService
+        
+        let descriptor: FetchDescriptor<PurchasedFeelingsModel> = .init()
+        allEntities = databaseService.getAllElements(fetchDescriptor: descriptor)
+        duration = allEntities.first { $0.name == ProductsIdentifiers.fun.rawValue }?.duration ?? 0
     }
     
     func purchase() async {
-        let status = try? await service.purchase(product: .fun)
+        let status = try? await paymentService.purchase(product: .fun)
         
         if status == .success {
-            fearCount += 1
+            if let element = allEntities.first(where: { $0.name == ProductsIdentifiers.fun.rawValue}) {
+                element.duration += 60
+                duration = element.duration
+                databaseService.update(element: element)
+            } else {
+                duration = 60
+                databaseService.add(element: PurchasedFeelingsModel(id: UUID(), name: ProductsIdentifiers.fun.rawValue, duration: 60))
+            }
         }
     }
     
-    enum Keys {
-        static let fearCount = "fearCount"
-    }
 }
