@@ -19,5 +19,9 @@ class FMSessionConfiguration {
         )
         return response.content
     }
+    
+    func generatePhrase(feeling: ProductsIdentifiers) async throws -> String {
+        try await generatePhrase(feeling: ProductsIdentifiers.feelingsToString(feeling: feeling))
+    }
 }
 

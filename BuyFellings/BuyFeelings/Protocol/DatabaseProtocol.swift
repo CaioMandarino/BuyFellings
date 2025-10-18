@@ -7,10 +7,14 @@
 
 import Foundation
 import SwiftData
+import Combine
 
 protocol DatabaseProtocol {
+    var databaseChangePublisher: AnyPublisher<Void, Never> { get }
+    
     func add<T: PersistentModel>(element: T)
     func delete<T: PersistentModel>(element: T)
     func update<T: PersistentModel>(element: T)
-    func getAllElements<T: PersistentModel>(fetchDescriptor: FetchDescriptor<T>) -> [T]
+    func getAllElements<T: PersistentModel>(predicate: Predicate<T>?, sortBy: [SortDescriptor<T>]) -> [T]
+    func getAllElements<T: PersistentModel>() -> [T]
 }

@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct BuyFeelingsTabView: View {
+    let homeViewModel: HomeViewModel
+    let contentViewModel: ContentViewModel
+
     var body: some View {
         TabView {
             Tab("Home", systemImage: "heart.fill") {
-                HomeView()
+                HomeView(viewModel: homeViewModel)
             }
             
             Tab("Buy", systemImage: "heart.fill") {
-                
+                ContentView(viewModel: contentViewModel)
             }
             
             Tab("Active", systemImage: "heart.fill") {
-                
+                ActiveFeelingTest(databaseManager: contentViewModel.databaseService)
             }
         }
     }
-}
-
-#Preview {
-    BuyFeelingsTabView()
 }

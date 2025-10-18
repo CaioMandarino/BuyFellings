@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.scenePhase) var scenePhase
+    @ObservedObject var viewModel: HomeViewModel
+    @State private var feelingPhase = "Thinking..."
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 40) {
                 
-                Text("00:00")
+                Text(viewModel.timeRemaining.formatted())
                     .font(.largeTitle)
                     .fontWeight(.semibold)
                     .monospacedDigit()
@@ -27,7 +31,7 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Text("O amor está no ar")
+                Text(feelingPhase)
                     .font(.title)
                 
                 Spacer()
@@ -39,10 +43,16 @@ struct HomeView: View {
                     }
                 }
             }
+            .task {
+                feelingPhase = await viewModel.getFeelingPhrase()
+            }
+            .onChange(of: scenePhase) { _  , newValue in
+                if newValue != .active {
+                    viewModel.persistTimeRemaining()
+                }
+            }
         }
     }
 }
 
-#Preview {
-    HomeView()
-}
+

@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Fun duration: \(viewModel.duration)")
+            Text("+60 seconds")
             
             Button ("Buy Fun duration") {
                 Task {
