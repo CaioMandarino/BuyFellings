@@ -25,11 +25,11 @@ final class ContentViewModel: ObservableObject {
         let allEntities: [PurchasedFeelingsModel] = databaseService.getAllElements()
         
         if status == .success {
-            if let element = allEntities.first(where: { $0.name == ProductsIdentifiers.fun.rawValue}) {
+            if let element = allEntities.first(where: { $0.name == product.rawValue }) {
                 element.duration += 60
                 databaseService.update(element: element)
             } else {
-                databaseService.add(element: PurchasedFeelingsModel(id: UUID(), name: ProductsIdentifiers.fun.rawValue, duration: 60))
+                databaseService.add(element: PurchasedFeelingsModel(id: UUID(), name: product.rawValue, duration: 60))
             }
         }
     }

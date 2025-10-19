@@ -42,13 +42,23 @@ final class HomeViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 guard let self else { return }
-                
+
                 let predicate: Predicate<PurchasedFeelingsModel> = #Predicate { $0.isActive }
-                self.allActiveFeelings = self.databaseService.getAllElements(predicate: predicate, sortBy: [])
+                let newActiveFeelings = self.databaseService.getAllElements(predicate: predicate, sortBy: [])
+                
+                for newActiveFeeling in newActiveFeelings {
+                    if self.allActiveFeelings.contains(where: { $0.id == newActiveFeeling.id }) {
+                        let timePass = totalTime - timeRemaining
+                        newActiveFeeling.duration -= timePass
+                        allActiveFeelings.removeAll(where: { $0.id == newActiveFeeling.id })
+                        allActiveFeelings.append(newActiveFeeling)
+                    } else {
+                        self.allActiveFeelings.append(newActiveFeeling)
+                    }
+                }
                 
                 let durations = allActiveFeelings.map(\.duration)
-                let newTotalTime = durations.max { $0 < $1} ?? 0
-                totalTime = newTotalTime - (totalTime - timeRemaining)
+                totalTime = durations.max { $0 < $1} ?? 0
                 timeRemaining = totalTime
                 
                 taskUpdateRemaining?.cancel()
@@ -90,20 +100,25 @@ final class HomeViewModel: ObservableObject {
     }
     
     func persistTimeRemaining() {
-        let timePass = totalTime - timeRemaining
-
-        for entity in allActiveFeelings {
-            entity.duration -= timePass
+        updateTimePass { entity in
             if entity.duration <= 0 {
-                databaseService.delete(element: entity)
+                self.databaseService.delete(element: entity)
             } else {
-                databaseService.update(element: entity)
+                self.databaseService.update(element: entity)
             }
         }
         
         totalTime = timeRemaining
     }
     
+    private func updateTimePass(whenUpdate action: ((PurchasedFeelingsModel) -> Void)? = nil) {
+        let timePass = totalTime - timeRemaining
+        
+        for entity in allActiveFeelings {
+            entity.duration -= timePass
+            action?(entity)
+        }
+    }
     
     deinit {
         taskUpdateRemaining?.cancel()
