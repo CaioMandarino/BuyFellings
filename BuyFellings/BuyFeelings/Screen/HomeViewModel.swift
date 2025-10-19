@@ -61,9 +61,11 @@ final class HomeViewModel: ObservableObject {
                 totalTime = durations.max { $0 < $1} ?? 0
                 timeRemaining = totalTime
                 
-                taskUpdateRemaining?.cancel()
-                taskUpdateRemaining = nil
-                updateTimeRemaining()
+                if timeRemaining > 0 {
+                    taskUpdateRemaining?.cancel()
+                    taskUpdateRemaining = nil
+                    updateTimeRemaining()
+                }
             }
             .store(in: &cancellables)
     }
@@ -103,6 +105,7 @@ final class HomeViewModel: ObservableObject {
         updateTimePass { entity in
             if entity.duration <= 0 {
                 self.databaseService.delete(element: entity)
+                self.allActiveFeelings.removeAll(where: { $0.id == entity.id })
             } else {
                 self.databaseService.update(element: entity)
             }
