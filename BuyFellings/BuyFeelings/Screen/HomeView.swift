@@ -10,32 +10,29 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.scenePhase) var scenePhase
     @ObservedObject var viewModel: HomeViewModel
-    @State private var feelingPhase = "Thinking..."
+    @State private var feelingPhase = ""
     
     var body: some View {
         NavigationStack {
             VStack(spacing: 40) {
                 
-                Text(viewModel.timeRemaining.formatted())
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                    .monospacedDigit()
-                    .padding()
-                
-                Image(systemName: "heart.fill")
+                Text(viewModel.timeRemaining.formatTime())
+                    .digitStyle(font: .largeTitle, value: Int(viewModel.timeRemaining))
+    
+                Image("Heart")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding(.horizontal, 64)
-                    .foregroundStyle(.red)
-                    .symbolEffect(.bounce)
+                    .padding(.horizontal)
+                    .breathingPulse()
                 
                 Spacer()
                 
-                Text(feelingPhase)
-                    .font(.title)
+                Text(feelingPhase.isEmpty ? "Thinking..." : feelingPhase)
+                    .font(.title3)
                 
                 Spacer()
             }
+            .padding()
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("", systemImage: "pencil") {
@@ -43,8 +40,15 @@ struct HomeView: View {
                     }
                 }
             }
+            .background {
+                LinearGradient(colors: viewModel.feelingsColors, startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .ignoresSafeArea()
+                    .opacity(0.5)
+            }
             .task {
-                feelingPhase = await viewModel.getFeelingPhrase()
+                feelingPhase = ""
+                guard let feelingPhase = try? await viewModel.getFeelingPhrase() else { return }
+                self.feelingPhase = feelingPhase
             }
             .onChange(of: scenePhase) { _  , newValue in
                 if newValue != .active {

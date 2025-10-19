@@ -70,7 +70,6 @@ final class DatabaseManager: DatabaseProtocol {
         do {
             try context.save()
             databaseChange.send()
-            print("Send")
         } catch {
             print("Erro ao salvar o contexto: \(error)")
         }

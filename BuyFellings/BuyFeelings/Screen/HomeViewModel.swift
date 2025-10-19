@@ -7,10 +7,12 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 @MainActor
 final class HomeViewModel: ObservableObject {
     @Published var timeRemaining: TimeInterval
+    @Published var feelingsColors: [Color] = [] // TODO: Add as cores quando o activeFeelings mudar
     
     private let databaseService: any DatabaseProtocol
     private let foundationService: FMSessionConfiguration
@@ -67,21 +69,21 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func getFeelingPhrase() async -> String {
+    func getFeelingPhrase() async throws -> String {
         guard allActiveFeelings.isEmpty == false else {
-            return "Nenhum sentimento comprado"
+            throw FeelingPhraseErrors.nonFeelingsActive
         }
         
         guard let fellingWithMoreDuration = allActiveFeelings.max(by: { $0.duration < $1.duration }) else {
-            return ""
+            throw FeelingPhraseErrors.invalidFeeling
         }
         
         guard let felling = ProductsIdentifiers(rawValue: fellingWithMoreDuration.name) else {
-            return ""
+            throw FeelingPhraseErrors.invalidFeeling
         }
         
         guard let response = try? await foundationService.generatePhrase(feeling: felling) else {
-            return ""
+            throw FeelingPhraseErrors.invalidFoundationResponse
         }
         
         return response

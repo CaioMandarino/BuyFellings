@@ -19,8 +19,8 @@ final class ContentViewModel: ObservableObject {
         self.databaseService = databaseService
     }
     
-    func purchase() async {
-        let status = try? await paymentService.purchase(product: .fun)
+    func purchase(product: ProductsIdentifiers) async {
+        let status = try? await paymentService.purchase(product: product)
         
         let allEntities: [PurchasedFeelingsModel] = databaseService.getAllElements()
         
