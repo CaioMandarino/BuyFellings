@@ -10,6 +10,7 @@ import SwiftUI
 struct BuyFeelingsTabView: View {
     let homeViewModel: HomeViewModel
     let contentViewModel: ContentViewModel
+    let FeelingScreenViewModel: FeelingScreenViewModel
 
     var body: some View {
         TabView {
@@ -22,7 +23,7 @@ struct BuyFeelingsTabView: View {
             }
             
             Tab("Active", systemImage: "heart.fill") {
-                ActiveFeelingTest(databaseManager: contentViewModel.databaseService)
+                FeelingActivateScreen(viewmodel: FeelingScreenViewModel)
             }
         }
     }
