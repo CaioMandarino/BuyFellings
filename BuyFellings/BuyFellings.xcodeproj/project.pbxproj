@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		DAFD27862EA01A0D003AB48E /* BuyFeelings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyFeelings.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C81A20B2EA2C15D009A0FC5 /* BuyFellings.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BuyFellings.entitlements; sourceTree = "<group>"; };
+		DAFD27862EA01A0D003AB48E /* BuyFellings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyFellings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +33,7 @@
 		DAFD277D2EA01A0D003AB48E = {
 			isa = PBXGroup;
 			children = (
+				7C81A20B2EA2C15D009A0FC5 /* BuyFellings.entitlements */,
 				DAFD27882EA01A0D003AB48E /* BuyFeelings */,
 				DAFD27872EA01A0D003AB48E /* Products */,
 			);
@@ -40,7 +42,7 @@
 		DAFD27872EA01A0D003AB48E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DAFD27862EA01A0D003AB48E /* BuyFeelings.app */,
+				DAFD27862EA01A0D003AB48E /* BuyFellings.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +50,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DAFD27852EA01A0D003AB48E /* BuyFeelings */ = {
+		DAFD27852EA01A0D003AB48E /* BuyFellings */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DAFD27912EA01A0E003AB48E /* Build configuration list for PBXNativeTarget "BuyFeelings" */;
+			buildConfigurationList = DAFD27912EA01A0E003AB48E /* Build configuration list for PBXNativeTarget "BuyFellings" */;
 			buildPhases = (
 				DAFD27822EA01A0D003AB48E /* Sources */,
 				DAFD27832EA01A0D003AB48E /* Frameworks */,
@@ -63,11 +65,11 @@
 			fileSystemSynchronizedGroups = (
 				DAFD27882EA01A0D003AB48E /* BuyFeelings */,
 			);
-			name = BuyFeelings;
+			name = BuyFellings;
 			packageProductDependencies = (
 			);
 			productName = BuyFellings;
-			productReference = DAFD27862EA01A0D003AB48E /* BuyFeelings.app */;
+			productReference = DAFD27862EA01A0D003AB48E /* BuyFellings.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +87,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DAFD27812EA01A0D003AB48E /* Build configuration list for PBXProject "BuyFeelings" */;
+			buildConfigurationList = DAFD27812EA01A0D003AB48E /* Build configuration list for PBXProject "BuyFellings" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +101,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DAFD27852EA01A0D003AB48E /* BuyFeelings */,
+				DAFD27852EA01A0D003AB48E /* BuyFellings */,
 			);
 		};
 /* End PBXProject section */
@@ -251,17 +253,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BuyFellings.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LVLV977XZN;
+				DEVELOPMENT_TEAM = 6F2KGULZ85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -284,17 +287,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BuyFellings.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LVLV977XZN;
+				DEVELOPMENT_TEAM = 6F2KGULZ85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +319,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DAFD27812EA01A0D003AB48E /* Build configuration list for PBXProject "BuyFeelings" */ = {
+		DAFD27812EA01A0D003AB48E /* Build configuration list for PBXProject "BuyFellings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DAFD278F2EA01A0E003AB48E /* Debug */,
@@ -324,7 +328,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DAFD27912EA01A0E003AB48E /* Build configuration list for PBXNativeTarget "BuyFeelings" */ = {
+		DAFD27912EA01A0E003AB48E /* Build configuration list for PBXNativeTarget "BuyFellings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DAFD27922EA01A0E003AB48E /* Debug */,
