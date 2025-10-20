@@ -19,7 +19,7 @@ struct BuyFeelingsTabView: View {
             }
             
             Tab("Buy", systemImage: "heart.fill") {
-                ContentView(viewModel: contentViewModel)
+                BuyEmotionsView(viewModel: storeViewModel)
             }
             
             Tab("Active", systemImage: "heart.fill") {
