@@ -13,6 +13,7 @@ struct CardComponentCarousel: View {
     let items: [CardItem]
     
     var body: some View {
+        
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
