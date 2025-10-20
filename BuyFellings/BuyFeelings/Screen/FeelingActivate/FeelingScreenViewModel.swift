@@ -39,12 +39,13 @@ final class FeelingScreenViewModel {
         let purchaseFeelings: [PurchasedFeelingsModel] = databaseManager.getAllElements()
         for purchaseFeeling in purchaseFeelings {
             guard let feeling = ProductsIdentifiers(rawValue: purchaseFeeling.name) else { continue }
-            let item = FeelingActivateModel(feeling: feeling, image: "", timeInSeconds: "") {
+            let item = FeelingActivateModel(feeling: feeling, timeInSeconds: "") {
                 purchaseFeeling.isActive = true
                 databaseManager.update(element: purchaseFeeling)
             }
             allPurchased.append(item)
         }
+        
         feelingModels = allPurchased
     }
 }
