@@ -1,12 +1,15 @@
 import SwiftUI
 
 struct BuyEmotionsView: View {
-    let title: String
-    let items: [CardItem]
+    let title: String = ""
+    @ObservedObject var viewModel: BuyEmotionsViewModel
+    
 
     var body: some View {
+       
+        
         ScrollView {
-            CardComponentCarousel(title: title, items: items)
+            CardComponentCarousel(title: title, items: viewModel.cards)
         }
     }
 }

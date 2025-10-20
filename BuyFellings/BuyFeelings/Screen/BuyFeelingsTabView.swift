@@ -10,6 +10,7 @@ import SwiftUI
 struct BuyFeelingsTabView: View {
     let homeViewModel: HomeViewModel
     let contentViewModel: ContentViewModel
+    let storeViewModel: BuyEmotionsViewModel
 
     var body: some View {
         TabView {
@@ -18,7 +19,7 @@ struct BuyFeelingsTabView: View {
             }
             
             Tab("Buy", systemImage: "heart.fill") {
-                ContentView(viewModel: contentViewModel)
+                BuyEmotionsView(viewModel: storeViewModel)
             }
             
             Tab("Active", systemImage: "heart.fill") {
