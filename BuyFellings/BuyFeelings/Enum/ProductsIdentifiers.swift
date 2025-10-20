@@ -39,7 +39,7 @@ enum ProductsIdentifiers: String, CaseIterable {
     case creativity     = "com.CaioMandarino.BuyFellings.seasonal.creativity"
     case companionship  = "com.CaioMandarino.BuyFellings.seasonal.companionship"
     case fun            = "com.CaioMandarino.BuyFellings.seasonal.fun"
-
+    
     
     enum Categories {
         case badFeelings
@@ -67,6 +67,49 @@ enum ProductsIdentifiers: String, CaseIterable {
             return Image("creativity")
         default:
             return Image("Unknown")
+        }
+    }
+    
+    static func feelingsToString(feeling: ProductsIdentifiers) -> String {
+        switch feeling {
+        case .anxiety:
+            return "Anxiety"
+        case .sadness:
+            return "Sadness"
+        case .guilt:
+            return "Guilt"
+        case .anguish:
+            return "Anguish"
+        case .shame:
+            return "Shame"
+        case .anger:
+            return "Anger"
+        case .joy:
+            return "Joy"
+        case .love:
+            return "Love"
+        case .enthusiasm:
+            return "Enthusiasm"
+        case .patience:
+            return "Patience"
+        case .hope:
+            return "Hope"
+        case .gratitude:
+            return "Gratitude"
+        case .fear:
+            return "Fear"
+        case .affliction:
+            return "Affliction"
+        case .paranoia:
+            return "Paranoia"
+        case .creativity:
+            return "Creativity"
+        case .companionship:
+            return "Companionship"
+        case .fun:
+            return "Fun"
+        default:
+            return "Unknown"
         }
     }
 }
