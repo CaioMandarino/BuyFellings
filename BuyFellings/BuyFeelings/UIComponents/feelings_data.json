@@ -1,0 +1,39 @@
+[
+    //Good Emotions:
+    {
+        "id": "1",
+        "name": "Joy",
+        "price": 2.50,
+        "image": "Joy"
+    },
+    {
+        "id": "2",
+        "name": "Love",
+        "price": 2.50,
+        "image": "Love"
+    },
+    {
+        "id": "3",
+        "name": "Enthusiasm",
+        "price": 2.50,
+        "image": "Enthusiasm"
+    },
+    {
+        "id": "4",
+        "name": "Patience",
+        "price": 2.50,
+        "image": "Patience"
+    },
+    {
+        "id": "5",
+        "name": "Hope",
+        "price": 2.50,
+        "image": "Hope"
+    },
+    {
+        "id": "6",
+        "name": "Gratitude",
+        "price": 2.50,
+        "image": "Gratitude"
+    }
+]
