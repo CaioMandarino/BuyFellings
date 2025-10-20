@@ -21,7 +21,7 @@ struct CardComponent: View {
                 VStack(alignment: .leading) {
                     Text(item.name)
                         .font(.headline)
-                    Text(item.price, format: .dolar())
+                    Text(item.price)
                         .font(.footnote)
                 }
                 
@@ -42,17 +42,17 @@ struct CardComponent: View {
         }
     }
 
-#Preview {
-    @Previewable @State var isFavorite = false
-    
-    CardComponent(
-        item: .init(
-            id: "com.CaioMandarino.BuyFellings.bad.anxiety",
-            name: "Criativity",
-            price: 0.99,
-            image: "Criativity"
-        )
-    )
-    .padding()
-    .background(.background.secondary)
-}
+//#Preview {
+//    @Previewable @State var isFavorite = false
+//    
+//    CardComponent(
+//        item: .init(
+//            id: "com.CaioMandarino.BuyFellings.bad.anxiety",
+//            name: "Criativity",
+//            price: 0.99,
+//            image: "Criativity"
+//        )
+//    )
+//    .padding()
+//    .background(.background.secondary)
+//}

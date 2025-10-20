@@ -46,6 +46,7 @@ enum ProductsIdentifiers: String, CaseIterable {
         case goodFeelings
         case sessionBadFeelings
         case sessionGoodFeelings
+        case subscription
     }
     
     static func feelings(for category: Categories) -> [ProductsIdentifiers] {
@@ -58,15 +59,32 @@ enum ProductsIdentifiers: String, CaseIterable {
             return [.fear, .affliction, .paranoia]
         case .sessionGoodFeelings:
             return [.creativity, .fun, .companionship]
+        case .subscription:
+            return [.premiumMonthly, .premiumQuarterly, .premiumYearly, .season]
         }
     }
     
-    static func feelingsToImage(feeling: ProductsIdentifiers) -> Image {
+    static func feelingsToCategory(for feeling: ProductsIdentifiers) -> Categories {
+        switch feeling {
+        case .anxiety, .sadness, .guilt, .anguish, .shame, .anger:
+            return .badFeelings
+        case .joy, .love, .enthusiasm, .patience, .hope, .gratitude:
+            return .goodFeelings
+        case .fear, .affliction, .paranoia:
+            return .sessionBadFeelings
+        case .creativity, .fun, .companionship:
+            return .sessionGoodFeelings
+        case .premiumMonthly, .premiumQuarterly, .premiumYearly, .season:
+            return .subscription
+        }
+    }
+    
+    static func feelingsToImage(feeling: ProductsIdentifiers) -> String {
         switch feeling {
         case .creativity:
-            return Image("creativity")
+            return "creativity"
         default:
-            return Image("Unknown")
+            return "Unknown"
         }
     }
     
@@ -108,8 +126,14 @@ enum ProductsIdentifiers: String, CaseIterable {
             return "Companionship"
         case .fun:
             return "Fun"
-        default:
-            return "Unknown"
+        case .premiumYearly:
+            return "Premium Yearly"
+        case .premiumQuarterly:
+            return "Premium Quarterly"
+        case .premiumMonthly:
+            return "Premium Monthly"
+        case .season:
+            return "Season"
         }
     }
 }

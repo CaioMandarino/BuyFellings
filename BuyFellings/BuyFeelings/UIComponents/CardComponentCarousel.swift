@@ -16,19 +16,64 @@ struct CardComponentCarousel: View {
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
-                    ForEach(items) { item in
-                        CardComponent(
-                            item: item
-                        )
-                        .frame(width: 340, height: 280)
-                        .padding(.vertical)
+                    ForEach(items.filter({ $0.category == .badFeelings})) { item in
+                        CardComponent(item: item)
+                            .frame(width: 340, height: 280)
+                            .padding(.vertical)
                     }
                 }
                 .scrollTargetLayout()
             }
             .safeAreaPadding(.horizontal)
             .scrollTargetBehavior(.viewAligned)
-        } header: {
+        }
+        
+        Section {
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 16) {
+                    ForEach(items.filter({ $0.category == .goodFeelings})) { item in
+                        CardComponent(item: item)
+                            .frame(width: 340, height: 280)
+                            .padding(.vertical)
+                    }
+                }
+                .scrollTargetLayout()
+            }
+            .safeAreaPadding(.horizontal)
+            .scrollTargetBehavior(.viewAligned)
+        }
+        
+        Section {
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 16) {
+                    ForEach(items.filter({ $0.category == .sessionBadFeelings})) { item in
+                        CardComponent(item: item)
+                            .frame(width: 340, height: 280)
+                            .padding(.vertical)
+                    }
+                }
+                .scrollTargetLayout()
+            }
+            .safeAreaPadding(.horizontal)
+            .scrollTargetBehavior(.viewAligned)
+        }
+        
+        Section {
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 16) {
+                    ForEach(items.filter({ $0.category == .sessionGoodFeelings})) { item in
+                        CardComponent(item: item)
+                            .frame(width: 340, height: 280)
+                            .padding(.vertical)
+                    }
+                }
+                .scrollTargetLayout()
+            }
+            .safeAreaPadding(.horizontal)
+            .scrollTargetBehavior(.viewAligned)
+        }
+        
+        header: {
             HStack {
                 Text(title)
                     .font(.title3.bold())

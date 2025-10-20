@@ -5,13 +5,14 @@
 //  Created by Larissa Kailane on 17/10/25.
 //
 
-
 import Foundation
+import SwiftUI
 
-struct CardItem: Identifiable, Equatable, Decodable {
-    let id: String
+struct CardItem: Identifiable, Equatable {
+    let id: UUID = UUID()
     let name: String
-    let price: Double
+    let price: String
     let image: String
+    let category: ProductsIdentifiers.Categories
 }
 

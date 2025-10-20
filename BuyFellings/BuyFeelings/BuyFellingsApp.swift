@@ -14,7 +14,8 @@ struct BuyFellingsApp: App {
     let container: ModelContainer
     let contentViewModel: ContentViewModel
     let homeViewModel: HomeViewModel
-    
+    let buyEmotionsViewModel: BuyEmotionsViewModel
+
     init() {
         container = try! ModelContainer(for: PurchasedFeelingsModel.self)
         let context = container.mainContext
@@ -24,11 +25,16 @@ struct BuyFellingsApp: App {
             
         contentViewModel = .init(paymentService: storeKitService, databaseService: databaseService)
         homeViewModel = .init(databaseService: databaseService, foundationService: foundationService)
+        buyEmotionsViewModel = .init(storeKitManager: storeKitService)
     }
     
     var body: some Scene {
         WindowGroup {
-            BuyFeelingsTabView(homeViewModel: homeViewModel, contentViewModel: contentViewModel)
+            BuyFeelingsTabView(
+                homeViewModel: homeViewModel,
+                contentViewModel: contentViewModel,
+                storeViewModel: buyEmotionsViewModel
+            )
         }
         .modelContainer(container)
     }
