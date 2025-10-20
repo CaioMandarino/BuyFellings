@@ -63,18 +63,8 @@ enum ProductsIdentifiers: String, CaseIterable {
     
     static func feelingsToImage(feeling: ProductsIdentifiers) -> Image {
         switch feeling {
-        case .anxiety:
-            return Image("anxiety")
-        case .sadness:
-            return Image("sadness")
-        case .guilt:
-            return Image("guilt")
-        case .anguish:
-            return Image("anguish")
-        case .shame:
-            return Image("shame")
-        case .anger:
-            return Image("anger")
+        case .creativity:
+            return Image("creativity")
         default:
             return Image("Unknown")
         }
