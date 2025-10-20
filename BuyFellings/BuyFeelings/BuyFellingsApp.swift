@@ -25,7 +25,8 @@ struct BuyFellingsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: contentViewModel)
+//            ContentView(viewModel: contentViewModel)
+            FeelingActivateScreen()
         }
         .modelContainer(container)
     }
