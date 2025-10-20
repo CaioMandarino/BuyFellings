@@ -29,7 +29,7 @@ extension Image {
     func card() -> some View {
         self
             .resizable()
-            .frame(height: 300)
+            .frame(width: 220, height: 220)
             .aspectRatio(1, contentMode: .fill)
     }
 }

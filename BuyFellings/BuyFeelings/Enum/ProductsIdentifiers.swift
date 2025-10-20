@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum ProductsIdentifiers: String, CaseIterable {
     case premiumMonthly
@@ -57,6 +58,25 @@ enum ProductsIdentifiers: String, CaseIterable {
             return [.fear, .affliction, .paranoia]
         case .sessionGoodFeelings:
             return [.creativity, .fun, .companionship]
+        }
+    }
+    
+    static func feelingsToImage(feeling: ProductsIdentifiers) -> Image {
+        switch feeling {
+        case .anxiety:
+            return Image("anxiety")
+        case .sadness:
+            return Image("sadness")
+        case .guilt:
+            return Image("guilt")
+        case .anguish:
+            return Image("anguish")
+        case .shame:
+            return Image("shame")
+        case .anger:
+            return Image("anger")
+        default:
+            return Image("Unknown")
         }
     }
 }

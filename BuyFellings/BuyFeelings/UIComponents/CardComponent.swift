@@ -10,11 +10,6 @@ import SwiftUI
 struct CardComponent: View {
     
     let item: CardItem
-//    let isFavorite: Bool
-    let buyEmotion: () -> Void
-//    let didToggleFavorite: () -> Void
-    
-    
     
     var body: some View {
         VStack(spacing: .zero) {
@@ -33,7 +28,7 @@ struct CardComponent: View {
                 Spacer()
                 
                 Button("Buy emotion") {
-                    buyEmotion()
+//                    buyEmotion()
                 }
                 .buttonStyle(.borderedProminent)
             }
@@ -43,16 +38,9 @@ struct CardComponent: View {
         .background(.background.secondary)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .lightShadow()
-
-//        .overlay(alignment: .topTrailing) {
-//            FavoriteButton(isFavorite: isFavorite) {
-//                didToggleFavorite()
-        
             .padding()
         }
-
     }
-
 
 #Preview {
     @Previewable @State var isFavorite = false
@@ -62,10 +50,8 @@ struct CardComponent: View {
             id: "com.CaioMandarino.BuyFellings.bad.anxiety",
             name: "Criativity",
             price: 0.99,
-//            description: "",
             image: "Criativity"
-        ),
-        buyEmotion: {}
+        )
     )
     .padding()
     .background(.background.secondary)
