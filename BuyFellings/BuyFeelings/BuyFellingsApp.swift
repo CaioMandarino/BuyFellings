@@ -15,7 +15,6 @@ struct BuyFellingsApp: App {
     let contentViewModel: ContentViewModel
     let homeViewModel: HomeViewModel
     let buyEmotionsViewModel: BuyEmotionsViewModel
-
     let feelingScreenViewModel: FeelingScreenViewModel
     
     init() {
@@ -36,9 +35,8 @@ struct BuyFellingsApp: App {
             BuyFeelingsTabView(
                 homeViewModel: homeViewModel,
                 contentViewModel: contentViewModel,
-                storeViewModel: buyEmotionsViewModel
+                feelingScreenViewModel: feelingScreenViewModel
             )
-            BuyFeelingsTabView(homeViewModel: homeViewModel, contentViewModel: contentViewModel, FeelingScreenViewModel: feelingScreenViewModel)
         }
         .modelContainer(container)
     }

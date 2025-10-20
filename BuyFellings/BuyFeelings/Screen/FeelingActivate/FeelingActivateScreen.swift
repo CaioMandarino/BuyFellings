@@ -7,14 +7,14 @@
 import SwiftUI
 
 struct FeelingActivateScreen: View {
-    @State var viewmodel: FeelingScreenViewModel
+    @State var viewModel: FeelingScreenViewModel
     var body: some View {
         Form {
             Section(header: Text("Emotions").font(.largeTitle).foregroundColor(.primary)) {
-                if viewmodel.feelingModels.isEmpty {
+                if viewModel.feelingModels.isEmpty {
                     Text("No feelings purchased")
                 } else {
-                    ForEach(viewmodel.feelingModels) { feeling in
+                    ForEach(viewModel.feelingModels) { feeling in
                         FeelingActivateCard(
                             bottle: feeling.image,
                             feeling: ProductsIdentifiers.feelingsToString(feeling: feeling.feeling),
@@ -25,10 +25,10 @@ struct FeelingActivateScreen: View {
                 }
             }
             Section(header: Text("Subscriptions").font(.largeTitle).foregroundColor(.primary)) {
-                if viewmodel.subscriptions.isEmpty {
+                if viewModel.subscriptions.isEmpty {
                     Text("No subscriptions yet")
                 } else {
-                    ForEach(viewmodel.subscriptions) { subscription in
+                    ForEach(viewModel.subscriptions) { subscription in
                         Text(subscription.title)
                             .font(.headline)
                     }
