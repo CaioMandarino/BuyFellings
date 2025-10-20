@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct BuyFellingsApp: App {
+    @UIApplicationDelegateAdaptor var appDelegate: CustomAppDelegate
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    appDelegate.app = self
+                }
         }
     }
 }

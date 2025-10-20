@@ -22,6 +22,16 @@ struct ContentView: View {
             }
         }
         .padding()
+        .task {
+            await requestPermission()
+        }
+    }
+    func requestPermission() async {
+        do {
+            try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])
+        } catch {
+            print("Failed to request permission: \(error)")
+        }
     }
 }
 
