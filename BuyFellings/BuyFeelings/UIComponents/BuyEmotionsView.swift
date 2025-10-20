@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct BuyEmotionsView: View {
-    let title: String = ""
     @ObservedObject var viewModel: BuyEmotionsViewModel
     
 
@@ -9,7 +8,7 @@ struct BuyEmotionsView: View {
        
         
         ScrollView {
-            CardComponentCarousel(title: title, items: viewModel.cards)
+            CardComponentCarousel(items: viewModel.cards)
         }
     }
 }

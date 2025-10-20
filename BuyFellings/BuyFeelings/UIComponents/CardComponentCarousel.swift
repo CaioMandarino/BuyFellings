@@ -9,11 +9,9 @@ import SwiftUI
 
 struct CardComponentCarousel: View {
     
-    let title: String
     let items: [CardItem]
     
     var body: some View {
-        
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
@@ -27,6 +25,15 @@ struct CardComponentCarousel: View {
             }
             .safeAreaPadding(.horizontal)
             .scrollTargetBehavior(.viewAligned)
+        } header: {
+            HStack {
+                Text("Bad Feelings")
+                    .font(.title3.bold())
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.top)
+            .padding(.bottom, -8)
         }
         
         Section {
@@ -42,6 +49,15 @@ struct CardComponentCarousel: View {
             }
             .safeAreaPadding(.horizontal)
             .scrollTargetBehavior(.viewAligned)
+        } header: {
+            HStack {
+                Text("Good Feelings")
+                    .font(.title3.bold())
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.top)
+            .padding(.bottom, -8)
         }
         
         Section {
@@ -57,6 +73,15 @@ struct CardComponentCarousel: View {
             }
             .safeAreaPadding(.horizontal)
             .scrollTargetBehavior(.viewAligned)
+        } header: {
+            HStack {
+                Text("Halloween Bad Feelings")
+                    .font(.title3.bold())
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.top)
+            .padding(.bottom, -8)
         }
         
         Section {
@@ -72,11 +97,9 @@ struct CardComponentCarousel: View {
             }
             .safeAreaPadding(.horizontal)
             .scrollTargetBehavior(.viewAligned)
-        }
-        
-        header: {
+        } header: {
             HStack {
-                Text(title)
+                Text("Halloween Good Feelings")
                     .font(.title3.bold())
                 Spacer()
             }
