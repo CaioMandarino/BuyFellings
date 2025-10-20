@@ -49,12 +49,22 @@ struct HomeView: View {
                 feelingPhase = ""
                 guard let feelingPhase = try? await viewModel.getFeelingPhrase() else { return }
                 self.feelingPhase = feelingPhase
+                
+                await requestPermission()
             }
             .onChange(of: scenePhase) { _  , newValue in
                 if newValue != .active {
                     viewModel.persistTimeRemaining()
                 }
             }
+            
+        }
+    }
+    func requestPermission() async {
+        do {
+            try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])
+        } catch {
+            print("Failed to request permission: \(error)")
         }
     }
 }
