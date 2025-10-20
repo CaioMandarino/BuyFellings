@@ -8,7 +8,7 @@ import SwiftUI
 
 struct FeelingActivateCard: View {
     // variables
-    let bottle: ImageResource
+    let bottle: String
     let feeling: String
     let timeInSeconds: String
     let onActivate: () -> Void
@@ -39,39 +39,3 @@ struct FeelingActivateCard: View {
     }
 }
 
-#Preview {
-    List{
-        Section {
-            FeelingActivateCard(
-                bottle: .frascoTeste,
-                feeling: "Companherismo",
-                timeInSeconds: "12 segundos",
-                onActivate: {}
-            )
-            FeelingActivateCard(
-                bottle: .frascoTeste,
-                feeling: "Companherismo",
-                timeInSeconds: "12 segundos",
-                onActivate: {}
-            )
-            FeelingActivateCard(
-                bottle: .frascoTeste,
-                feeling: "Companherismo",
-                timeInSeconds: "12 segundos",
-                onActivate: {}
-            )
-            FeelingActivateCard(
-                bottle: .frascoTeste,
-                feeling: "Companherismo",
-                timeInSeconds: "12 segundos",
-                onActivate: {}
-            )
-            FeelingActivateCard(
-                bottle: .frascoTeste,
-                feeling: "Companherismo",
-                timeInSeconds: "12 segundos",
-                onActivate: {}
-            )
-        }
-    }
-}

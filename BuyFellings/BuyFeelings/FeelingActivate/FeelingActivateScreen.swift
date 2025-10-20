@@ -14,121 +14,20 @@ struct FeelingActivateScreen: View {
     //o array segue o modelo : id - feeling - image - timeInSeconds - onActivate
     // basta passar a execucão expecifica pra cada sentimento 8)
     // caso tenha duvida veja o FeelingActivateModel
+    var feelingModels: [FeelingActivateModel] = []
     
-    let goodFeelingModels: [FeelingActivateModel] = [
-        FeelingActivateModel(
-            feeling: "Joy",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Love",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Enthusiasm",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Patience",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Hope",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Gratitude",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        )
-    ]
-    let badFeelingModels: [FeelingActivateModel] = [
-        FeelingActivateModel(
-            feeling: "Anxiety",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Sadness",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Guilt",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Anguish",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Shame",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Anger",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        )
-    ]
-    let seasonalFeelingModels: [FeelingActivateModel] = [
-        FeelingActivateModel(
-            feeling: "Fear",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Affliction",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Paranoia",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Creativity",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Companionship",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        ),
-        FeelingActivateModel(
-            feeling: "Fun",
-            image: .frascoTeste,
-            timeInSeconds: "",
-            onActivate: {}
-        )
-    ]
+    init(purchaseFeelings: [PurchasedFeelingsModel], databaseManager: any DatabaseProtocol) {
+        for purchaseFeeling in purchaseFeelings {
+            guard let feeling = ProductsIdentifiers(rawValue: purchaseFeeling.name) else { continue }
+            let item = FeelingActivateModel(feeling: feeling, image: "", timeInSeconds: "") {
+                /*
+                 purchaseFeeling.isActive = true
+                 databaseManager.update(purchaseFeeling)
+                 */
+            }
+            feelingModels.append(item)
+        }
+    }
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -136,45 +35,24 @@ struct FeelingActivateScreen: View {
                 .font(.largeTitle)
                 .padding(.leading, 16)
                 .padding(.top, 16)
-            List {
+            Form {
                 Section(header: Text("Good Feelings").font(.headline)) {
-                    ForEach(goodFeelingModels, id: \.id) { feeling in
+                    ForEach(feelingModels) { feeling in
                         FeelingActivateCard(
                             bottle: feeling.image ,
-                            feeling: feeling.feeling,
-                            timeInSeconds: feeling.timeInSeconds,
-                            onActivate: feeling.onActivate
-                        )
-                    }
-                }
-                Section(header: Text("Bad Feelings").font(.headline)) {
-                    ForEach(badFeelingModels, id: \.id) { feeling in
-                        FeelingActivateCard(
-                            bottle: feeling.image ,
-                            feeling: feeling.feeling,
-                            timeInSeconds: feeling.timeInSeconds,
-                            onActivate: feeling.onActivate
-                        )
-                    }
-                }
-                Section(header: Text("Subscriptions").font(.headline)) {
-                    ForEach(seasonalFeelingModels, id: \.id) { feeling in
-                        FeelingActivateCard(
-                            bottle: feeling.image ,
-                            feeling: feeling.feeling,
+                            feeling: ProductsIdentifiers.feelingsToString(feeling: feeling.feeling),
                             timeInSeconds: feeling.timeInSeconds,
                             onActivate: feeling.onActivate
                         )
                     }
                 }
             }
+            Text("Subscriptions")
+                .font(.largeTitle)
+                .padding(.leading, 16)
+                .padding(.top, 16)
+            
             .listStyle(.insetGrouped)
         }
     }
 }
-
-
-#Preview {
-    FeelingActivateScreen()
-}
-
