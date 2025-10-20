@@ -7,10 +7,16 @@
 
 import Foundation
 import SwiftData
+import Combine
 
 final class DatabaseManager: DatabaseProtocol {
     
+    private let databaseChange: PassthroughSubject<Void, Never> = .init()
     private let context: ModelContext
+    
+    public var databaseChangePublisher: AnyPublisher<Void, Never> {
+        databaseChange.eraseToAnyPublisher()
+    }
     
     init(context: ModelContext) {
         self.context = context
@@ -40,10 +46,11 @@ final class DatabaseManager: DatabaseProtocol {
     }
     
     /**
-     Retorna todos os elementos do banco de dados com base em um FetchDescriptor
+     Retorna todos os elementos do banco de dados com base em um predicate e sortBy
      */
-    func getAllElements<T: PersistentModel>(fetchDescriptor: FetchDescriptor<T>) -> [T] {
+    func getAllElements<T: PersistentModel>(predicate: Predicate<T>? = nil, sortBy: [SortDescriptor<T>] = []) -> [T] {
         do {
+            let fetchDescriptor = FetchDescriptor(predicate: predicate, sortBy: sortBy)
             let elements = try context.fetch(fetchDescriptor)
             return elements
         } catch {
@@ -52,11 +59,20 @@ final class DatabaseManager: DatabaseProtocol {
         }
     }
     
+    /**
+     Retorna todos os elementos do banco de dados
+     */
+    func getAllElements<T: PersistentModel>() -> [T] {
+        self.getAllElements(predicate: nil, sortBy: [])
+    }
+    
     private func saveContext() {
         do {
             try context.save()
+            databaseChange.send()
         } catch {
             print("Erro ao salvar o contexto: \(error)")
         }
     }
+    
 }

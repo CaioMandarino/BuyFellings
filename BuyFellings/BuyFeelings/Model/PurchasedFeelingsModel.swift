@@ -13,6 +13,7 @@ final class PurchasedFeelingsModel {
     var id: UUID
     var name: String
     var duration: TimeInterval
+    var isActive: Bool = false
     
     init(id: UUID, name: String, duration: TimeInterval) {
         self.id = id
