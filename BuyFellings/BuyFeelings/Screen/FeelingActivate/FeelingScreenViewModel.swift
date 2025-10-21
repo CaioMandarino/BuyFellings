@@ -74,7 +74,7 @@ final class FeelingScreenViewModel {
             }
             allPurchased.append(item)
         }
-        
+        allPurchased.sort { $0.feeling.rawValue < $1.feeling.rawValue }
         feelingModels = allPurchased
     }
 }

@@ -13,6 +13,7 @@ struct FeelingActivateCard: View {
     let timeInSeconds: String
     let isActive: Bool
     let onActivate: () -> Void
+
     
     var body: some View {
         HStack {
@@ -36,7 +37,9 @@ struct FeelingActivateCard: View {
                         .foregroundStyle(Color(.white))
                 }
             }
+            .buttonStyle(BorderlessButtonStyle())
             .disabled(isActive)
+
         }
     }
 }
