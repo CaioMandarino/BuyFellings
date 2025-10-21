@@ -14,5 +14,5 @@ struct CardItem: Identifiable, Equatable {
     let price: String
     let image: String
     let category: ProductsIdentifiers.Categories
+    let productID: ProductsIdentifiers
 }
-

@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 enum ProductsIdentifiers: String, CaseIterable {
-    case premiumMonthly
-    case premiumQuarterly
-    case premiumYearly
-    case season
+    case premiumMonthly = "com.CaioMandarino.BuyFellings.PremiumMonthly"
+    case premiumQuarterly = "com.CaioMandarino.BuyFellings.PremiumQuarterly"
+    case premiumYearly = "com.CaioMandarino.BuyFelling.PremiumYearly"
+    case season = "com.CaioMandarino.BuyFellings.Season"
     
     // MARK: - Bad Feelings
     case anxiety  = "com.CaioMandarino.BuyFellings.bad.anxiety"
@@ -63,6 +63,7 @@ enum ProductsIdentifiers: String, CaseIterable {
             return [.premiumMonthly, .premiumQuarterly, .premiumYearly, .season]
         }
     }
+    
     
     static func feelingsToCategory(for feeling: ProductsIdentifiers) -> Categories {
         switch feeling {
