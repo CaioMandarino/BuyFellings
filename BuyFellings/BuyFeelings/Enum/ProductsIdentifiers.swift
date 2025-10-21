@@ -44,7 +44,8 @@ enum ProductsIdentifiers: String, CaseIterable {
     enum Categories {
         case badFeelings
         case goodFeelings
-        case sessionBadFeelings
+        case seasonPass
+        case seasonBadFeelings
         case sessionGoodFeelings
         case subscription
     }
@@ -55,12 +56,14 @@ enum ProductsIdentifiers: String, CaseIterable {
             return [.anxiety, .sadness, .guilt, .anguish, .shame, .anger]
         case .goodFeelings:
             return [.joy, .love, .enthusiasm, .patience, .hope, .gratitude]
-        case .sessionBadFeelings:
+        case .seasonBadFeelings:
             return [.fear, .affliction, .paranoia]
         case .sessionGoodFeelings:
             return [.creativity, .fun, .companionship]
         case .subscription:
-            return [.premiumMonthly, .premiumQuarterly, .premiumYearly, .season]
+            return [.premiumMonthly, .premiumQuarterly, .premiumYearly]
+        case .seasonPass:
+            return [.season]
         }
     }
     
@@ -72,11 +75,13 @@ enum ProductsIdentifiers: String, CaseIterable {
         case .joy, .love, .enthusiasm, .patience, .hope, .gratitude:
             return .goodFeelings
         case .fear, .affliction, .paranoia:
-            return .sessionBadFeelings
+            return .seasonBadFeelings
         case .creativity, .fun, .companionship:
             return .sessionGoodFeelings
-        case .premiumMonthly, .premiumQuarterly, .premiumYearly, .season:
+        case .premiumMonthly, .premiumQuarterly, .premiumYearly:
             return .subscription
+        case .season:
+            return .seasonPass
         }
     }
     

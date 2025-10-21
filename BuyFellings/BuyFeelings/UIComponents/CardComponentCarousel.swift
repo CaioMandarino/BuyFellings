@@ -127,8 +127,8 @@ struct CardComponentCarousel: View {
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
-                    ForEach(items.filter({ $0.category == .sessionBadFeelings})) { item in
-                        if viewModel.userHavePremium {
+                    ForEach(items.filter({ $0.category == .seasonBadFeelings})) { item in
+                        if viewModel.userHaveSeason {
                             CardComponent(viewModel: viewModel, item: item)
                                 .frame(width: 340, height: 280)
                                 .padding(.vertical)
@@ -160,7 +160,7 @@ struct CardComponentCarousel: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
                     ForEach(items.filter({ $0.category == .sessionGoodFeelings})) { item in
-                        if viewModel.userHavePremium {
+                        if viewModel.userHaveSeason {
                             CardComponent(viewModel: viewModel, item: item)
                                 .frame(width: 340, height: 280)
                                 .padding(.vertical)

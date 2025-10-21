@@ -14,6 +14,7 @@ import Combine
 final class BuyEmotionsViewModel: ObservableObject {
     @Published var cards: [CardItem] = []
     @Published var userHavePremium: Bool = false
+    @Published var userHaveSeason: Bool = false
     
     private var cancellable: Set<AnyCancellable> = [] //ou vc instancia com Set<AnyCancellable>() > generics "mais swifty de acordo com o Ragel"
     private let paymentService: any StoreKitProtocol
@@ -34,11 +35,21 @@ final class BuyEmotionsViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] purchedProducts in
                 guard let self else { return }
+                
+                //Premium
                 if self.haveSubscripiton(for: purchedProducts) {
                     userHavePremium = true
                 } else {
                     userHavePremium = false
                 }
+                
+                //Season
+                if self.haveSeason(for: purchedProducts) {
+                    userHaveSeason = true
+                } else {
+                    userHaveSeason = false
+                }
+                
             }
             .store(in: &cancellable)
     }
@@ -46,6 +57,12 @@ final class BuyEmotionsViewModel: ObservableObject {
     private func haveSubscripiton(for purchedProducts: Set<ProductsIdentifiers>) -> Bool {
         return purchedProducts.contains { productsIdentifiers in
             return ProductsIdentifiers.feelingsToCategory(for: productsIdentifiers) == .subscription
+        }
+    }
+    
+    private func haveSeason(for purchedProducts: Set<ProductsIdentifiers>) -> Bool {
+        return purchedProducts.contains { productsIdentifiers in
+            return ProductsIdentifiers.feelingsToCategory(for: productsIdentifiers) == .seasonPass
         }
     }
     
