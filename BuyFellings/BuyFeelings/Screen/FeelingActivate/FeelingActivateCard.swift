@@ -11,6 +11,7 @@ struct FeelingActivateCard: View {
     let bottle: String
     let feeling: String
     let timeInSeconds: String
+    let isActive: Bool
     let onActivate: () -> Void
     
     var body: some View {
@@ -35,6 +36,7 @@ struct FeelingActivateCard: View {
                         .foregroundStyle(Color(.white))
                 }
             }
+            .disabled(isActive)
         }
     }
 }

@@ -20,6 +20,7 @@ struct FeelingActivateScreen: View {
                             bottle: feeling.image,
                             feeling: ProductsIdentifiers.feelingsToString(feeling: feeling.feeling),
                             timeInSeconds: feeling.timeInSeconds,
+                            isActive: feeling.isActive,
                             onActivate: feeling.onActivate
                         )
                     }
