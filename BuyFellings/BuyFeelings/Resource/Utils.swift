@@ -30,7 +30,7 @@ extension Image {
         self
             .resizable()
             .frame(width: 220, height: 220)
-            .aspectRatio(1, contentMode: .fill)
+            .aspectRatio(1, contentMode: .fit)
     }
 }
 

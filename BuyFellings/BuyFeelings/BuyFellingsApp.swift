@@ -34,7 +34,8 @@ struct BuyFellingsApp: App {
         WindowGroup {
             BuyFeelingsTabView(
                 homeViewModel: homeViewModel,
-                contentViewModel: contentViewModel,
+                buyEmotionsViewModel: buyEmotionsViewModel,
+//                contentViewModel: contentViewModel,
                 feelingScreenViewModel: feelingScreenViewModel
             )
         }

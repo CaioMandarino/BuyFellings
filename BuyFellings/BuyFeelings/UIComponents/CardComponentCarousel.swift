@@ -36,6 +36,28 @@ struct CardComponentCarousel: View {
             .padding(.bottom, -8)
         }
         
+        
+        // MARK: - Seção Happiness Subscription
+        Section {
+            // Banner fixo usando o seu CardSubscriptionComponent
+            if let item = items.first(where: { $0.category == .sessionGoodFeelings }) {
+                CardSubscriptionComponent(item: item)
+                    .frame(width: 340, height: 130)
+                    .frame(maxWidth: .infinity)
+            }
+        } header: {
+            HStack {
+                Text("Happiness is the way!")
+                    .font(.title3.bold())
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.top)
+            .padding(.bottom, -3)
+        }
+
+        
+        
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
@@ -59,6 +81,27 @@ struct CardComponentCarousel: View {
             .padding(.top)
             .padding(.bottom, -8)
         }
+        
+        
+        // MARK: - Seção Halloween Subscription
+        Section {
+            // Banner fixo usando o seu CardSubscriptionComponent
+            if let item = items.first(where: { $0.category == .subscription }) {
+                CardSubscriptionComponent(item: item)
+                    .frame(width: 340, height: 130)
+                    .frame(maxWidth: .infinity)
+            }
+        } header: {
+            HStack {
+                Text("Especial Feelings for Halloween")
+                    .font(.title3.bold())
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.top)
+            .padding(.bottom, -3)
+        }
+
         
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
