@@ -1,13 +1,13 @@
 //
-//  CardComponent.swift
+//  CardComponentLocked.swift
 //  BuyFeelings
 //
-//  Created by Larissa Kailane on 17/10/25.
+//  Created by Raquel Souza on 21/10/25.
 //
 
 import SwiftUI
 
-struct CardComponent: View {
+struct CardComponentLocked: View {
     
     @ObservedObject var viewModel: BuyEmotionsViewModel
     
@@ -35,18 +35,21 @@ struct CardComponent: View {
                     }
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(Color.sadness) // cor do botÃ£o
-
             }
             .padding()
         }
-        
+        .overlay(Color.black.opacity(0.5)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+        )
+        .overlay(
+            Image(systemName: "lock.fill")
+                .font(.largeTitle)
+                .foregroundColor(.white.opacity(0.8))
+        )
         .background(.background.secondary)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .lightShadow()
         .padding()
         }
     }
-
-
 

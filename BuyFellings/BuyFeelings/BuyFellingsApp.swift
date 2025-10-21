@@ -26,7 +26,7 @@ struct BuyFellingsApp: App {
             
         contentViewModel = .init(paymentService: storeKitService, databaseService: databaseService)
         homeViewModel = .init(databaseService: databaseService, foundationService: foundationService)
-        buyEmotionsViewModel = .init(storeKitManager: storeKitService)
+        buyEmotionsViewModel = .init(storeKitManager: storeKitService, databaseService: databaseService)
         feelingScreenViewModel = .init(databaseManager: databaseService)
     }
     

@@ -2,14 +2,16 @@ import SwiftUI
 
 struct CardSubscriptionComponent: View {
     
+    @ObservedObject var viewModel: BuyEmotionsViewModel
+    
     let item: CardItem
     
     // MARK: - Computed property para o banner
     var bannerName: String {
-        switch item.category {
-        case .subscription:
+        switch item.productID {
+        case .season:
             return "SeasonHalloween"
-        case .sessionGoodFeelings:
+        case .premiumMonthly:
             return "SunflowersHappiness"
         default:
             return "default_banner"
@@ -28,7 +30,9 @@ struct CardSubscriptionComponent: View {
             
             // Botão no canto inferior esquerdo
             Button("Subscribe now") {
-//                    buyEmotion()
+                Task {
+                    await viewModel.purchase(product: item.productID)
+                }
             }
             .buttonStyle(.borderedProminent)
             .tint(Color.paranoia) // cor do botão
@@ -41,4 +45,3 @@ struct CardSubscriptionComponent: View {
         .padding(.vertical)
     }
 }
-

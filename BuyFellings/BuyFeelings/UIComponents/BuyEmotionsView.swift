@@ -8,7 +8,7 @@ struct BuyEmotionsView: View {
        
         
         ScrollView {
-            CardComponentCarousel(items: viewModel.cards)
+            CardComponentCarousel(viewModel: viewModel, items: viewModel.cards)
         }
     }
 }

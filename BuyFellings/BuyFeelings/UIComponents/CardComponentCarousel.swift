@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CardComponentCarousel: View {
     
+    @ObservedObject var viewModel: BuyEmotionsViewModel
+    
     let items: [CardItem]
     
     var body: some View {
@@ -22,7 +24,7 @@ struct CardComponentCarousel: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
                     ForEach(items.filter({ $0.category == .badFeelings})) { item in
-                        CardComponent(item: item)
+                        CardComponent(viewModel: viewModel, item: item)
                             .frame(width: 340, height: 280)
                             .padding(.vertical)
                     }
@@ -46,8 +48,8 @@ struct CardComponentCarousel: View {
         // MARK: - Seção Happiness Subscription
         Section {
             // Banner fixo usando o seu CardSubscriptionComponent
-            if let item = items.first(where: { $0.category == .sessionGoodFeelings }) {
-                CardSubscriptionComponent(item: item)
+            if let item = items.first(where: { $0.productID == .premiumMonthly }) {
+                CardSubscriptionComponent(viewModel: viewModel, item: item)
                     .frame(width: 340, height: 130)
                     .frame(maxWidth: .infinity)
             }
@@ -63,6 +65,8 @@ struct CardComponentCarousel: View {
             .padding(.top)
             .padding(.bottom, -3)
         }
+        
+        
 
         
         
@@ -70,9 +74,15 @@ struct CardComponentCarousel: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
                     ForEach(items.filter({ $0.category == .goodFeelings})) { item in
-                        CardComponent(item: item)
-                            .frame(width: 340, height: 280)
-                            .padding(.vertical)
+                        if viewModel.userHavePremium {
+                            CardComponent(viewModel: viewModel, item: item)
+                                .frame(width: 340, height: 280)
+                                .padding(.vertical)
+                        } else {
+                            CardComponentLocked(viewModel: viewModel, item: item)
+                                .frame(width: 340, height: 280)
+                                .padding(.vertical)
+                        }
                     }
                 }
                 .scrollTargetLayout()
@@ -96,8 +106,8 @@ struct CardComponentCarousel: View {
         // MARK: - Seção Halloween Subscription
         Section {
             // Banner fixo usando o seu CardSubscriptionComponent
-            if let item = items.first(where: { $0.category == .subscription }) {
-                CardSubscriptionComponent(item: item)
+            if let item = items.first(where: { $0.productID == .season }) {
+                CardSubscriptionComponent(viewModel: viewModel, item: item)
                     .frame(width: 340, height: 130)
                     .frame(maxWidth: .infinity)
             }
@@ -118,9 +128,15 @@ struct CardComponentCarousel: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
                     ForEach(items.filter({ $0.category == .sessionBadFeelings})) { item in
-                        CardComponent(item: item)
-                            .frame(width: 340, height: 280)
-                            .padding(.vertical)
+                        if viewModel.userHavePremium {
+                            CardComponent(viewModel: viewModel, item: item)
+                                .frame(width: 340, height: 280)
+                                .padding(.vertical)
+                        } else {
+                            CardComponentLocked(viewModel: viewModel, item: item)
+                                .frame(width: 340, height: 280)
+                                .padding(.vertical)
+                        }
                     }
                 }
                 .scrollTargetLayout()
@@ -144,7 +160,7 @@ struct CardComponentCarousel: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
                     ForEach(items.filter({ $0.category == .sessionGoodFeelings})) { item in
-                        CardComponent(item: item)
+                        CardComponent(viewModel: viewModel, item: item)
                             .frame(width: 340, height: 280)
                             .padding(.vertical)
                     }
