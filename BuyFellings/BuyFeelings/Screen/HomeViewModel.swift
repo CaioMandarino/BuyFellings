@@ -12,7 +12,7 @@ import SwiftUI
 @MainActor
 final class HomeViewModel: ObservableObject {
     @Published var timeRemaining: TimeInterval
-    @Published var feelingsColors: [Color] = [] // TODO: Add as cores quando o activeFeelings mudar
+    @Published var feelingsColors: [Color] = []
     
     private let databaseService: any DatabaseProtocol
     private let foundationService: FMSessionConfiguration
@@ -35,6 +35,8 @@ final class HomeViewModel: ObservableObject {
         
         updateTimeRemaining()
         observeDatabaseChanges()
+        
+        appendBackgroundColor(for: allActiveFeelings)
     }
     
     private func observeDatabaseChanges() {
@@ -66,8 +68,20 @@ final class HomeViewModel: ObservableObject {
                     taskUpdateRemaining = nil
                     updateTimeRemaining()
                 }
+                
+                appendBackgroundColor(for: allActiveFeelings)
             }
             .store(in: &cancellables)
+    }
+    
+    func appendBackgroundColor(for entities: [PurchasedFeelingsModel]) {
+        var colorFeelings: [Color] = []
+        for entity in entities {
+            guard let feeling = ProductsIdentifiers(rawValue: entity.name) else { continue }
+            colorFeelings.append(Color(for: feeling))
+        }
+        
+        feelingsColors = colorFeelings
     }
     
     private func updateTimeRemaining() {

@@ -15,9 +15,9 @@ struct FeelingActivateModel : Identifiable {
     let timeInSeconds: String
     let onActivate: () -> Void
     
-    init(feeling: ProductsIdentifiers, image: String, timeInSeconds: String, onActivate: @escaping () -> Void) {
+    init(feeling: ProductsIdentifiers, timeInSeconds: String, onActivate: @escaping () -> Void) {
         self.feeling = feeling
-        self.image = image
+        self.image = ProductsIdentifiers.feelingsToImage(feeling: feeling)
         self.timeInSeconds = timeInSeconds
         self.onActivate = onActivate
     }

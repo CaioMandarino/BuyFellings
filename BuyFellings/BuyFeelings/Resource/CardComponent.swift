@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CardComponent: View {
     
+    @ObservedObject var viewModel: BuyEmotionsViewModel
+    
     let item: CardItem
     
     var body: some View {
@@ -21,16 +23,20 @@ struct CardComponent: View {
                 VStack(alignment: .leading) {
                     Text(item.name)
                         .font(.headline)
-                    Text(item.price, format: .dolar())
+                    Text(item.price)
                         .font(.footnote)
                 }
                 
                 Spacer()
                 
                 Button("Buy emotion") {
-//                    buyEmotion()
+                    Task {
+                       await viewModel.purchase(product: item.productID)
+                    }
                 }
                 .buttonStyle(.borderedProminent)
+                .tint(Color.sadness) // cor do botÃ£o
+
             }
             .padding()
         }
@@ -38,21 +44,9 @@ struct CardComponent: View {
         .background(.background.secondary)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .lightShadow()
-            .padding()
+        .padding()
         }
     }
 
-#Preview {
-    @Previewable @State var isFavorite = false
-    
-    CardComponent(
-        item: .init(
-            id: "com.CaioMandarino.BuyFellings.bad.anxiety",
-            name: "Criativity",
-            price: 0.99,
-            image: "Criativity"
-        )
-    )
-    .padding()
-    .background(.background.secondary)
-}
+
+

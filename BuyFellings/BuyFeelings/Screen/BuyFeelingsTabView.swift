@@ -9,8 +9,9 @@ import SwiftUI
 
 struct BuyFeelingsTabView: View {
     let homeViewModel: HomeViewModel
-    let contentViewModel: ContentViewModel
-    let FeelingScreenViewModel: FeelingScreenViewModel
+    let buyEmotionsViewModel: BuyEmotionsViewModel
+//    let contentViewModel: ContentViewModel
+    let feelingScreenViewModel: FeelingScreenViewModel
 
     var body: some View {
         TabView {
@@ -19,11 +20,12 @@ struct BuyFeelingsTabView: View {
             }
             
             Tab("Buy", systemImage: "heart.fill") {
-                ContentView(viewModel: contentViewModel)
+                BuyEmotionsView(viewModel: buyEmotionsViewModel)
+//                ContentView(viewModel: contentViewModel)
             }
             
             Tab("Active", systemImage: "heart.fill") {
-                FeelingActivateScreen(viewmodel: FeelingScreenViewModel)
+                FeelingActivateScreen(viewModel: feelingScreenViewModel)
             }
         }
     }

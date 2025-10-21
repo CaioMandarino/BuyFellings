@@ -39,14 +39,14 @@ final class FeelingScreenViewModel {
         let purchaseFeelings: [PurchasedFeelingsModel] = databaseManager.getAllElements()
         for purchaseFeeling in purchaseFeelings {
             guard let feeling = ProductsIdentifiers(rawValue: purchaseFeeling.name) else { continue }
-//            print(feeling)
-            let item = FeelingActivateModel(feeling: feeling, image: "", timeInSeconds: "") {
+            let item = FeelingActivateModel(feeling: feeling, timeInSeconds: "") {
+
                 purchaseFeeling.isActive = true
                 databaseManager.update(element: purchaseFeeling)
             }
             allPurchased.append(item)
         }
         allPurchased.sort { $0.feeling.rawValue < $1.feeling.rawValue } // para resolver a questão da atualizacão depois do click
-        feelingModels = allPurchased 
+        feelingModels = allPurchased
     }
 }
