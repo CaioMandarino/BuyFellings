@@ -31,6 +31,8 @@ struct CardComponent: View {
 //                    buyEmotion()
                 }
                 .buttonStyle(.borderedProminent)
+                .tint(Color.sadness) // cor do botão
+
             }
             .padding()
         }

@@ -23,22 +23,17 @@ struct CardSubscriptionComponent: View {
             Image(bannerName)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 340, height: 130)
+                .frame(width: 340, height: 130) //tamanho da imagem, para ficar exatamente do tamanho do banner
                 .clipped()
             
             // Botão no canto inferior esquerdo
-            Button {
-                // ação da assinatura
-            } label: {
-                Text("Subscribe Now")
-                    .font(.caption.bold()) //tamanho da fonte
-                    .padding(.horizontal, 10) //padding na horizontal
-                    .padding(.vertical, 6) //padding na vertical
-                    .background(Color.accentColor)
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
-                    .shadow(color: .white.opacity(0.2), radius: 2, x: 0, y: 2)
+            Button("Subscribe now") {
+//                    buyEmotion()
             }
+            .buttonStyle(.borderedProminent)
+            .tint(Color.paranoia) // cor do botão
+
+
             .padding(10)
         }
         .clipShape(RoundedRectangle(cornerRadius: 16))
