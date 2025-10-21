@@ -8,6 +8,7 @@ import SwiftUI
 
 struct FeelingActivateScreen: View {
     @State var viewModel: FeelingScreenViewModel
+    
     var body: some View {
         Form {
             Section(header: Text("Emotions").font(.largeTitle).foregroundColor(.primary)) {
