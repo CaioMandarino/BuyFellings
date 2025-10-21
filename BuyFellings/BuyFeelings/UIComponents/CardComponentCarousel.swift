@@ -160,10 +160,17 @@ struct CardComponentCarousel: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
                     ForEach(items.filter({ $0.category == .sessionGoodFeelings})) { item in
-                        CardComponent(viewModel: viewModel, item: item)
-                            .frame(width: 340, height: 280)
-                            .padding(.vertical)
+                        if viewModel.userHavePremium {
+                            CardComponent(viewModel: viewModel, item: item)
+                                .frame(width: 340, height: 280)
+                                .padding(.vertical)
+                        } else {
+                            CardComponentLocked(viewModel: viewModel, item: item)
+                                .frame(width: 340, height: 280)
+                                .padding(.vertical)
+                        }
                     }
+
                 }
                 .scrollTargetLayout()
             }
