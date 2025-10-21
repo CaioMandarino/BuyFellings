@@ -65,10 +65,10 @@ final class FeelingScreenViewModel {
     func getModels (databaseManager: any DatabaseProtocol) {
         var allPurchased: [FeelingActivateModel] = []
         let purchaseFeelings: [PurchasedFeelingsModel] = databaseManager.getAllElements()
+        
         for purchaseFeeling in purchaseFeelings {
             guard let feeling = ProductsIdentifiers(rawValue: purchaseFeeling.name) else { continue }
-            let item = FeelingActivateModel(feeling: feeling, timeInSeconds: "") {
-
+            let item = FeelingActivateModel(feeling: feeling, timeInSeconds: "\(purchaseFeeling.duration)", isActive: purchaseFeeling.isActive) {
                 purchaseFeeling.isActive = true
                 databaseManager.update(element: purchaseFeeling)
             }

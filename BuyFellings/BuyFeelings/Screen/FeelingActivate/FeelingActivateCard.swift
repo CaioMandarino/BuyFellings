@@ -11,6 +11,7 @@ struct FeelingActivateCard: View {
     let bottle: String
     let feeling: String
     let timeInSeconds: String
+    let isActive: Bool
     let onActivate: () -> Void
 
     
@@ -37,6 +38,8 @@ struct FeelingActivateCard: View {
                 }
             }
             .buttonStyle(BorderlessButtonStyle())
+            .disabled(isActive)
+
         }
     }
 }
