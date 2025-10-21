@@ -12,6 +12,12 @@ struct CardComponentCarousel: View {
     let items: [CardItem]
     
     var body: some View {
+        Text("Feelings for you!")
+            .font(.system(size: 28, weight: .bold, design: .monospaced))
+            .padding(.horizontal, 30)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+
+        
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
@@ -28,10 +34,10 @@ struct CardComponentCarousel: View {
         } header: {
             HStack {
                 Text("Bad Feelings")
-                    .font(.title3.bold())
+                    .font(.system(size: 18, weight: .bold, design: .monospaced))
                 Spacer()
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 30)
             .padding(.top)
             .padding(.bottom, -8)
         }
@@ -48,10 +54,12 @@ struct CardComponentCarousel: View {
         } header: {
             HStack {
                 Text("Happiness is the way!")
-                    .font(.title3.bold())
+                    .font(.system(size: 18, weight: .bold, design: .monospaced))
+                    .foregroundColor(Color.black)
+
                 Spacer()
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 30)
             .padding(.top)
             .padding(.bottom, -3)
         }
@@ -74,10 +82,12 @@ struct CardComponentCarousel: View {
         } header: {
             HStack {
                 Text("Good Feelings")
-                    .font(.title3.bold())
+                    .font(.system(size: 14, weight: .bold, design: .monospaced))
+                    .foregroundColor(Color.gray)
+
                 Spacer()
             }
-            .padding(.horizontal)
+            .padding(.horizontal,30)
             .padding(.top)
             .padding(.bottom, -8)
         }
@@ -93,11 +103,12 @@ struct CardComponentCarousel: View {
             }
         } header: {
             HStack {
-                Text("Especial Feelings for Halloween")
-                    .font(.title3.bold())
+                Text("Halloween season!")
+                    .font(.system(size: 18, weight: .bold, design: .monospaced))
+
                 Spacer()
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 30)
             .padding(.top)
             .padding(.bottom, -3)
         }
@@ -118,11 +129,13 @@ struct CardComponentCarousel: View {
             .scrollTargetBehavior(.viewAligned)
         } header: {
             HStack {
-                Text("Halloween Bad Feelings")
-                    .font(.title3.bold())
+                Text("Halloween: Bad Feelings")
+                    .font(.system(size: 14, weight: .bold, design: .monospaced))
+                    .foregroundColor(Color.gray)
+
                 Spacer()
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 30)
             .padding(.top)
             .padding(.bottom, -8)
         }
@@ -142,11 +155,13 @@ struct CardComponentCarousel: View {
             .scrollTargetBehavior(.viewAligned)
         } header: {
             HStack {
-                Text("Halloween Good Feelings")
-                    .font(.title3.bold())
+                Text("Halloween: Good Feelings")
+                    .font(.system(size: 14, weight: .bold, design: .monospaced))
+                    .foregroundColor(Color.gray)
+
                 Spacer()
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 30)
             .padding(.top)
             .padding(.bottom, -8)
         }
