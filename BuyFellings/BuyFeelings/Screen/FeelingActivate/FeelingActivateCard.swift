@@ -35,6 +35,7 @@ struct FeelingActivateCard: View {
                         .foregroundStyle(Color(.white))
                 }
             }
+            .buttonStyle(BorderlessButtonStyle()) //pra resolver o problema de clique que fica em todo o card
         }
     }
 }
