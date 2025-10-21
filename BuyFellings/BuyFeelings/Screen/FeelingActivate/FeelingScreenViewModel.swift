@@ -46,7 +46,7 @@ final class FeelingScreenViewModel {
             }
             allPurchased.append(item)
         }
-        allPurchased.sort { $0.feeling.rawValue < $1.feeling.rawValue } // para resolver a questão da atualizacão depois do click
+        allPurchased.sort { $0.feeling.rawValue < $1.feeling.rawValue }
         feelingModels = allPurchased
     }
 }

@@ -12,6 +12,7 @@ struct FeelingActivateCard: View {
     let feeling: String
     let timeInSeconds: String
     let onActivate: () -> Void
+
     
     var body: some View {
         HStack {
@@ -35,7 +36,7 @@ struct FeelingActivateCard: View {
                         .foregroundStyle(Color(.white))
                 }
             }
-            .buttonStyle(BorderlessButtonStyle()) //pra resolver o problema de clique que fica em todo o card
+            .buttonStyle(BorderlessButtonStyle())
         }
     }
 }
