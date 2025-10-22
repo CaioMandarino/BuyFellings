@@ -9,14 +9,16 @@ import SwiftUI
 
 struct CardHeartComponent: View {
     
-    @ObservedObject var viewModel: BuyEmotionsViewModel
+    @ObservedObject var viewModel: EditHeartViewModel
     let item: CardItem
     
     var body: some View {
         VStack(spacing: .zero) {
             
             Image(item.image)
-                .card()
+                .resizable()
+                .frame(width: 120, height: 100)
+                .aspectRatio(contentMode: .fit)
                 
             HStack {
                 VStack(alignment: .leading) {
@@ -30,7 +32,7 @@ struct CardHeartComponent: View {
                 
                 Button("Buy Heart") {
                     Task {
-                        //ação da compra aqui
+                        await viewModel.purchase(product: item.productID)
                     }
                 }
                 .buttonStyle(.borderedProminent)
@@ -39,11 +41,9 @@ struct CardHeartComponent: View {
             }
             .padding()
         }
-        
         .background(.background.secondary)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .lightShadow()
         .padding()
-        
     }
 }
