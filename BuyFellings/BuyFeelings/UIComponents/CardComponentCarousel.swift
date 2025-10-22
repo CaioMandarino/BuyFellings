@@ -47,7 +47,7 @@ struct CardComponentCarousel: View {
         
         // MARK: - Seção Happiness Subscription
         Section {
-            // Banner fixo usando o seu CardSubscriptionComponent
+            // Banner fixo usando o CardSubscriptionComponent
             if let item = items.first(where: { $0.productID == .premiumMonthly }) {
                 CardSubscriptionComponent(viewModel: viewModel, item: item)
                     .frame(width: 340, height: 130)
@@ -105,7 +105,7 @@ struct CardComponentCarousel: View {
         
         // MARK: - Seção Halloween Subscription
         Section {
-            // Banner fixo usando o seu CardSubscriptionComponent
+            // Banner fixo usando o CardSubscriptionComponent
             if let item = items.first(where: { $0.productID == .season }) {
                 CardSubscriptionComponent(viewModel: viewModel, item: item)
                     .frame(width: 340, height: 130)
