@@ -6,19 +6,100 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7CB12DD92EA6C85000EB4F94 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB12DD82EA6C85000EB4F94 /* WidgetKit.framework */; };
+		7CB12DDB2EA6C85000EB4F94 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB12DDA2EA6C85000EB4F94 /* SwiftUI.framework */; };
+		7CB12DEA2EA6C85100EB4F94 /* FeelingsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7CB12DD62EA6C85000EB4F94 /* FeelingsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7CB12DE82EA6C85100EB4F94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAFD277E2EA01A0D003AB48E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7CB12DD52EA6C85000EB4F94;
+			remoteInfo = FeelingsWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7CB12DEF2EA6C85100EB4F94 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7CB12DEA2EA6C85100EB4F94 /* FeelingsWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		7C81A20B2EA2C15D009A0FC5 /* BuyFellings.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BuyFellings.entitlements; sourceTree = "<group>"; };
+		7CB12DD62EA6C85000EB4F94 /* FeelingsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FeelingsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CB12DD82EA6C85000EB4F94 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		7CB12DDA2EA6C85000EB4F94 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		7CB12DF02EA6CC0E00EB4F94 /* FeelingsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FeelingsWidgetExtension.entitlements; sourceTree = "<group>"; };
 		DAFD27862EA01A0D003AB48E /* BuyFellings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyFellings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7CB12DEB2EA6C85100EB4F94 /* Exceptions for "FeelingsWidget" folder in "FeelingsWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 7CB12DD52EA6C85000EB4F94 /* FeelingsWidgetExtension */;
+		};
+		7CB12DF22EA6CCB800EB4F94 /* Exceptions for "BuyFeelings" folder in "FeelingsWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Enum/ProductsIdentifiers.swift,
+				Resource/EmotionColor.swift,
+			);
+			target = 7CB12DD52EA6C85000EB4F94 /* FeelingsWidgetExtension */;
+		};
+		7CB12DF92EA6DAB300EB4F94 /* Exceptions for "FeelingsWidget" folder in "BuyFellings" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+			);
+			target = DAFD27852EA01A0D003AB48E /* BuyFellings */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		7CB12DDC2EA6C85000EB4F94 /* FeelingsWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7CB12DF92EA6DAB300EB4F94 /* Exceptions for "FeelingsWidget" folder in "BuyFellings" target */,
+				7CB12DEB2EA6C85100EB4F94 /* Exceptions for "FeelingsWidget" folder in "FeelingsWidgetExtension" target */,
+			);
+			path = FeelingsWidget;
+			sourceTree = "<group>";
+		};
 		DAFD27882EA01A0D003AB48E /* BuyFeelings */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7CB12DF22EA6CCB800EB4F94 /* Exceptions for "BuyFeelings" folder in "FeelingsWidgetExtension" target */,
+			);
 			path = BuyFeelings;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7CB12DD32EA6C85000EB4F94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CB12DDB2EA6C85000EB4F94 /* SwiftUI.framework in Frameworks */,
+				7CB12DD92EA6C85000EB4F94 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAFD27832EA01A0D003AB48E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,10 +110,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7CB12DD72EA6C85000EB4F94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7CB12DD82EA6C85000EB4F94 /* WidgetKit.framework */,
+				7CB12DDA2EA6C85000EB4F94 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DAFD277D2EA01A0D003AB48E = {
 			isa = PBXGroup;
 			children = (
+				7CB12DF02EA6CC0E00EB4F94 /* FeelingsWidgetExtension.entitlements */,
+				7C81A20B2EA2C15D009A0FC5 /* BuyFellings.entitlements */,
 				DAFD27882EA01A0D003AB48E /* BuyFeelings */,
+				7CB12DDC2EA6C85000EB4F94 /* FeelingsWidget */,
+				7CB12DD72EA6C85000EB4F94 /* Frameworks */,
 				DAFD27872EA01A0D003AB48E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				DAFD27862EA01A0D003AB48E /* BuyFellings.app */,
+				7CB12DD62EA6C85000EB4F94 /* FeelingsWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +143,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7CB12DD52EA6C85000EB4F94 /* FeelingsWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CB12DEC2EA6C85100EB4F94 /* Build configuration list for PBXNativeTarget "FeelingsWidgetExtension" */;
+			buildPhases = (
+				7CB12DD22EA6C85000EB4F94 /* Sources */,
+				7CB12DD32EA6C85000EB4F94 /* Frameworks */,
+				7CB12DD42EA6C85000EB4F94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				7CB12DDC2EA6C85000EB4F94 /* FeelingsWidget */,
+			);
+			name = FeelingsWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = FeelingsWidgetExtension;
+			productReference = 7CB12DD62EA6C85000EB4F94 /* FeelingsWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		DAFD27852EA01A0D003AB48E /* BuyFellings */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAFD27912EA01A0E003AB48E /* Build configuration list for PBXNativeTarget "BuyFellings" */;
@@ -55,10 +172,12 @@
 				DAFD27822EA01A0D003AB48E /* Sources */,
 				DAFD27832EA01A0D003AB48E /* Frameworks */,
 				DAFD27842EA01A0D003AB48E /* Resources */,
+				7CB12DEF2EA6C85100EB4F94 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7CB12DE92EA6C85100EB4F94 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				DAFD27882EA01A0D003AB48E /* BuyFeelings */,
@@ -80,6 +199,9 @@
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					7CB12DD52EA6C85000EB4F94 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
 					DAFD27852EA01A0D003AB48E = {
 						CreatedOnToolsVersion = 26.0.1;
 					};
@@ -100,11 +222,19 @@
 			projectRoot = "";
 			targets = (
 				DAFD27852EA01A0D003AB48E /* BuyFellings */,
+				7CB12DD52EA6C85000EB4F94 /* FeelingsWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7CB12DD42EA6C85000EB4F94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAFD27842EA01A0D003AB48E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +245,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7CB12DD22EA6C85000EB4F94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAFD27822EA01A0D003AB48E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +261,77 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7CB12DE92EA6C85100EB4F94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7CB12DD52EA6C85000EB4F94 /* FeelingsWidgetExtension */;
+			targetProxy = 7CB12DE82EA6C85100EB4F94 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		7CB12DED2EA6C85100EB4F94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FeelingsWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6F2KGULZ85;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FeelingsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FeelingsWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CaioMandarino.BuyFellings.FeelingsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7CB12DEE2EA6C85100EB4F94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FeelingsWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6F2KGULZ85;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FeelingsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FeelingsWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CaioMandarino.BuyFellings.FeelingsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DAFD278F2EA01A0E003AB48E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -251,16 +458,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BuyFellings.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 23AK7X9G78;
+				DEVELOPMENT_TEAM = 6F2KGULZ85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 26;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -283,16 +492,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BuyFellings.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 23AK7X9G78;
+				DEVELOPMENT_TEAM = 6F2KGULZ85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 26;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +524,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7CB12DEC2EA6C85100EB4F94 /* Build configuration list for PBXNativeTarget "FeelingsWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CB12DED2EA6C85100EB4F94 /* Debug */,
+				7CB12DEE2EA6C85100EB4F94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DAFD27812EA01A0D003AB48E /* Build configuration list for PBXProject "BuyFellings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
