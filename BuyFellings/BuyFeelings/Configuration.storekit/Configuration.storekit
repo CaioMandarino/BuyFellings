@@ -1,0 +1,515 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "2DFD580A",
+  "nonRenewingSubscriptions" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "19C5122C",
+      "localizations" : [
+        {
+          "description" : "Halloween Season",
+          "displayName" : "HalloweenSeason",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Halloween Season Pass",
+          "displayName" : "Halloween Season",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.Season",
+      "referenceName" : "Season",
+      "type" : "NonRenewingSubscription"
+    }
+  ],
+  "products" : [
+    {
+      "displayPrice" : "300.99",
+      "familyShareable" : false,
+      "internalID" : "EBCD5572",
+      "localizations" : [
+        {
+          "description" : "Dose Of Joy ",
+          "displayName" : "Joy",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Alegria",
+          "displayName" : "Alegria",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.good.joy",
+      "promotionalImageID" : "87C99130",
+      "referenceName" : "Joy",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "31E7C7C7",
+      "localizations" : [
+        {
+          "description" : "Dose Of Love",
+          "displayName" : "Love",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Amor",
+          "displayName" : "Amor",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.good.love",
+      "referenceName" : "Love",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "ECA5799A",
+      "localizations" : [
+        {
+          "description" : "Dose Of Enthusiasm",
+          "displayName" : "Enthusiasm",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Entusiasmo",
+          "displayName" : "Entusiasmo",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.good.enthusiasm",
+      "referenceName" : "Enthusiasm",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "51B670A6",
+      "localizations" : [
+        {
+          "description" : "Dose Of Patience",
+          "displayName" : "Patience",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Paciência",
+          "displayName" : "Paciência",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.good.patience",
+      "referenceName" : "Patience",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "E2403806",
+      "localizations" : [
+        {
+          "description" : "Dose Of Hope",
+          "displayName" : "Hope",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Esperança ",
+          "displayName" : "Esperança",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.good.hope",
+      "referenceName" : "Hope",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "2A600552",
+      "localizations" : [
+        {
+          "description" : "Dose Of Gratitude",
+          "displayName" : "Gratitude",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Gratidão",
+          "displayName" : "Gratidão",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.good.gratitude",
+      "referenceName" : "Gratitude",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "F12ECA04",
+      "localizations" : [
+        {
+          "description" : "Dose Of Anxiety",
+          "displayName" : "Anxiety",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Ansiedade",
+          "displayName" : "Ansiedade",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.bad.anxiety",
+      "referenceName" : "Anxiety",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "FE9FC985",
+      "localizations" : [
+        {
+          "description" : "Dose Of Sadness",
+          "displayName" : "Sadness",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Tristeza",
+          "displayName" : "Tristeza",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.bad.sadness",
+      "referenceName" : "Sadness",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "21D19439",
+      "localizations" : [
+        {
+          "description" : "Dose Of Guilt",
+          "displayName" : "Guilt",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Culpa",
+          "displayName" : "Culpa",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.bad.guilt",
+      "referenceName" : "Guilt",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "45A2ED42",
+      "localizations" : [
+        {
+          "description" : "Dose Of Anguish",
+          "displayName" : "Anguish",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Angústia",
+          "displayName" : "Angústia",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.bad.anguish",
+      "referenceName" : "Anguish",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "69CFC7A7",
+      "localizations" : [
+        {
+          "description" : "Dose Of Shame",
+          "displayName" : "Shame",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Vergonha",
+          "displayName" : "Vergonha",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.bad.shame",
+      "referenceName" : "Shame",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "A80FA597",
+      "localizations" : [
+        {
+          "description" : "Dose Of Anger",
+          "displayName" : "Anger",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Raiva",
+          "displayName" : "Raiva",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.bad.anger",
+      "referenceName" : "Anger",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "9F449FA2",
+      "localizations" : [
+        {
+          "description" : "Dose Of Fear",
+          "displayName" : "Fear",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.seasonal.fear",
+      "referenceName" : "Fear",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "91DD4CF2",
+      "localizations" : [
+        {
+          "description" : "Dose Of Creativity",
+          "displayName" : "Creativity",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Criatividade",
+          "displayName" : "Criatividade",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.seasonal.creativity",
+      "referenceName" : "Creativity",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "C183F315",
+      "localizations" : [
+        {
+          "description" : "Dose Of Companionship",
+          "displayName" : "Companionship",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Companherismo",
+          "displayName" : "Companherismo",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.seasonal.companionship",
+      "referenceName" : "Companionship",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "BB257FBF",
+      "localizations" : [
+        {
+          "description" : "Dose Of Fun",
+          "displayName" : "Fun",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Diversão",
+          "displayName" : "Diversão",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.seasonal.fun",
+      "referenceName" : "Fun",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "F3F236EB",
+      "localizations" : [
+        {
+          "description" : "Dose Of Affliction",
+          "displayName" : "Affliction",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Aflição",
+          "displayName" : "Aflição",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.seasonal.affliction",
+      "referenceName" : "Affliction",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "E524A8AE",
+      "localizations" : [
+        {
+          "description" : "Dose Of Paranoia",
+          "displayName" : "Paranoia",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Porção de Paranoia",
+          "displayName" : "Paranoia",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.seasonal.paranoia",
+      "referenceName" : "Paranoia",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_disableDialogs" : false,
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ],
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "D78FD025",
+      "localizations" : [
+        {
+          "description" : "Premium Monthly",
+          "displayName" : "Premium Monthly",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Premium Pass",
+          "displayName" : "Premium Pass",
+          "locale" : "pt_PT"
+        }
+      ],
+      "name" : "Premium",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "9EEE2D26",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.CaioMandarino.BuyFellings.PremiumMonthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "PremiumMonthly",
+          "subscriptionGroupID" : "D78FD025",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "EE84132D",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.CaioMandarino.BuyFellings.PremiumQuarterly",
+          "recurringSubscriptionPeriod" : "P2M",
+          "referenceName" : "PremiumQuarterly",
+          "subscriptionGroupID" : "D78FD025",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "BC7F613A",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.CaioMandarino.BuyFelling.PremiumYearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "PremiumYearly",
+          "subscriptionGroupID" : "D78FD025",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

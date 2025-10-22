@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 enum ProductsIdentifiers: String, CaseIterable {
-    case premiumMonthly
-    case premiumQuarterly
-    case premiumYearly
-    case season
+    case premiumMonthly = "com.CaioMandarino.BuyFellings.PremiumMonthly"
+    case premiumQuarterly = "com.CaioMandarino.BuyFellings.PremiumQuarterly"
+    case premiumYearly = "com.CaioMandarino.BuyFelling.PremiumYearly"
+    case season = "com.CaioMandarino.BuyFellings.Season"
     
     // MARK: - Bad Feelings
     case anxiety  = "com.CaioMandarino.BuyFellings.bad.anxiety"
@@ -46,6 +46,7 @@ enum ProductsIdentifiers: String, CaseIterable {
         case goodFeelings
         case sessionBadFeelings
         case sessionGoodFeelings
+        case subscription
     }
     
     static func feelings(for category: Categories) -> [ProductsIdentifiers] {
@@ -58,15 +59,73 @@ enum ProductsIdentifiers: String, CaseIterable {
             return [.fear, .affliction, .paranoia]
         case .sessionGoodFeelings:
             return [.creativity, .fun, .companionship]
+        case .subscription:
+            return [.premiumMonthly, .premiumQuarterly, .premiumYearly, .season]
         }
     }
     
-    static func feelingsToImage(feeling: ProductsIdentifiers) -> Image {
+    
+    static func feelingsToCategory(for feeling: ProductsIdentifiers) -> Categories {
         switch feeling {
+        case .anxiety, .sadness, .guilt, .anguish, .shame, .anger:
+            return .badFeelings
+        case .joy, .love, .enthusiasm, .patience, .hope, .gratitude:
+            return .goodFeelings
+        case .fear, .affliction, .paranoia:
+            return .sessionBadFeelings
+        case .creativity, .fun, .companionship:
+            return .sessionGoodFeelings
+        case .premiumMonthly, .premiumQuarterly, .premiumYearly, .season:
+            return .subscription
+        }
+    }
+    
+    static func feelingsToImage(feeling: ProductsIdentifiers) -> String {
+        switch feeling {
+        case .anxiety:
+            return "Anxiety"
+        case .sadness:
+            return "Sadness"
+        case .guilt:
+            return "Guilt"
+        case .anguish:
+            return "Anguish"
+        case .shame:
+            return "Shame"
+        case .anger:
+            return "Anger"
+        case .joy:
+            return "Joy"
+        case .love:
+            return "Love"
+        case .enthusiasm:
+            return "Enthusiasm"
+        case .patience:
+            return "Patience"
+        case .hope:
+            return "Hope"
+        case .gratitude:
+            return "Gratitude"
+        case .fear:
+            return "Fear"
+        case .affliction:
+            return "Affliction"
+        case .paranoia:
+            return "Paranoia"
         case .creativity:
-            return Image("creativity")
-        default:
-            return Image("Unknown")
+            return "Creativity"
+        case .companionship:
+            return "Companionship"
+        case .fun:
+            return "Fun"
+        case .premiumYearly:
+            return "Premium Yearly"
+        case .premiumQuarterly:
+            return "Premium Quarterly"
+        case .premiumMonthly:
+            return "Premium Monthly"
+        case .season:
+            return "Season"
         }
     }
     
@@ -108,8 +167,14 @@ enum ProductsIdentifiers: String, CaseIterable {
             return "Companionship"
         case .fun:
             return "Fun"
-        default:
-            return "Unknown"
+        case .premiumYearly:
+            return "Premium Yearly"
+        case .premiumQuarterly:
+            return "Premium Quarterly"
+        case .premiumMonthly:
+            return "Premium Monthly"
+        case .season:
+            return "Season"
         }
     }
 }

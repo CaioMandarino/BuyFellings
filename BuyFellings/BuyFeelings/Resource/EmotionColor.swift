@@ -2,7 +2,7 @@
 //  EmotionColor.swift
 //  BuyFeelings
 //
-//  Created by JotaPe on 20/10/25.
+//  Created by Jota Pe on 20/10/25.
 //
 
 import Foundation
@@ -14,50 +14,49 @@ extension ProductsIdentifiers {
         switch self {
         // MARK: - Good Feelings
         case .joy:
-            return [Color("Joy"), .yellow]
+            return [Color.joy]
         case .love:
-            return [Color("Love"), .red]
+            return [Color.love]
         case .enthusiasm:
-            return [Color("Entusiasm"), .orange]
+            return [Color.enthusiasm]
         case .patience:
-            return [Color("Patience"), .green]
+            return [Color.patience]
         case .hope:
-            return [Color("Hope"), .teal]
+            return [Color.hope]
         case .gratitude:
-            return [Color("Gratitude"), .yellow]
+            return [Color.gratitude]
             
         // MARK: - Bad Feelings
+
         case .anxiety:
-            return [Color("Anxiety"), .purple]
+            return [Color.anxiety]
         case .sadness:
-            return [Color("Sadness"), .blue]
+            return [Color.sadness]
         case .guilt:
-            return [Color("Guilt"), .brown]
+            return [Color.guilt]
         case .anguish:
-            return [Color("Anguish"), .indigo]
+            return [Color.anguish]
         case .shame:
-            return [Color("Shame"), .pink]
+            return [Color.shame]
         case .anger:
-            return [Color("Anger"), .red]
+            return [Color.anger]
             
         // MARK: - Seasonal & Others
         case .fear:
-            return [Color("Fear"), .black]
+            return [Color.fear]
         case .affliction:
-            return [Color("Affliction"), .gray]
+            return [Color.affliction]
         case .paranoia:
-            return [Color("Paranoia"), .purple]
+            return [Color.paranoia]
         case .creativity:
-            return [Color("Creativity"), .orange]
+            return [Color.creativity]
         case .companionship:
-            return [Color("Companionship"), .cyan]
+            return [Color.companionship]
         case .fun:
-            return [Color("Fun"), .mint]
-            
-        // Casos que não têm cores, como assinaturas
+            return [Color.fun]
         default:
-            return [.gray, .white]
+            // Ajustado para retornar um array de cor
+            return [.gray]
         }
     }
 }
-

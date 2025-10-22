@@ -38,8 +38,7 @@ final class HomeViewModel: ObservableObject {
         updateTimeRemaining()
         observeDatabaseChanges()
         
-        // Chamada inicial para configurar a cor do app e o widget no lançamento
-        updatePrimaryFeelingAndWidget()
+        appendBackgroundColor(for: allActiveFeelings)
     }
     
     private func observeDatabaseChanges() {
@@ -75,8 +74,20 @@ final class HomeViewModel: ObservableObject {
                     taskUpdateRemaining = nil
                     updateTimeRemaining()
                 }
+                
+                appendBackgroundColor(for: allActiveFeelings)
             }
             .store(in: &cancellables)
+    }
+    
+    func appendBackgroundColor(for entities: [PurchasedFeelingsModel]) {
+        var colorFeelings: [Color] = []
+        for entity in entities {
+            guard let feeling = ProductsIdentifiers(rawValue: entity.name) else { continue }
+            colorFeelings.append(Color(for: feeling))
+        }
+        
+        feelingsColors = colorFeelings
     }
     
     private func updateTimeRemaining() {

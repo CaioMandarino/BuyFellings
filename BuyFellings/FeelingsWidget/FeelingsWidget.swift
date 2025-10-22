@@ -44,49 +44,51 @@ struct FeelingsWidgetEntryView : View {
 
     var body: some View {
         
-        // ---- INÍCIO DA MODIFICAÇÃO ----
-        
-        // 1. Pega as cores originais que vêm do app
         let originalColors = entry.emotion?.gradientColors ?? [Color.gray, Color.white.opacity(0.5)]
+    
+        let mainColor = originalColors[0]
         
-        // 2. Decide qual é a "cor principal"
-        //    - Se a emoção NÃO for nil (ex: "Sadness"), pegamos a segunda cor (a mais escura, índice 1)
-        //    - Se a emoção FOR nil (estado "Nada"), pegamos a primeira cor (o cinza, índice 0)
-        let mainColor = entry.emotion != nil ? originalColors[1] : originalColors[0]
-        
-        // 3. Cria um array de cores para o gradiente usando APENAS a cor principal.
-        //    Isso resultará em um fundo de cor sólida, removendo o "branco".
         let backgroundColors = [mainColor, mainColor]
 
-        // 4. Cria o gradiente (que agora será de cor sólida)
         let gradient = LinearGradient(
             gradient: Gradient(colors: backgroundColors),
             startPoint: .top,
             endPoint: .bottom
         )
         
-        // ---- FIM DA MODIFICAÇÃO ----
+        var colorText: Color {
+            if backgroundColors[0] == .anguish || backgroundColors[0] == .paranoia || backgroundColors[0] == .affliction || backgroundColors[0] == .love || backgroundColors[0] == .anxiety {
+                return .white
+            }
+            else {
+                return .black
+            }
+        }
+        
     
         VStack(spacing: 4) {
             Text("Seu Coração Está Sentindo:")
                 .font(.caption)
-                .foregroundColor(.white.opacity(0.8))
+                .foregroundColor(colorText.opacity(0.8))
             
             if let currentEmotion = entry.emotion {
             
                 Text(ProductsIdentifiers.feelingsToString(feeling: currentEmotion))
                     .font(.system(.title3, design: .rounded, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(colorText)
             } else {
 
                 Text("Nada")
                     .font(.system(.title3, design: .rounded, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(colorText)
             }
         }
         .padding()
         .multilineTextAlignment(.center)
         .containerBackground(gradient, for: .widget)
+        .onAppear {
+            print("GradientColors: ", entry.emotion?.gradientColors)
+        }
     }
 }
 

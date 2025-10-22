@@ -49,7 +49,6 @@
 		7CB12DEB2EA6C85100EB4F94 /* Exceptions for "FeelingsWidget" folder in "FeelingsWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Assets.xcassets,
 				Info.plist,
 			);
 			target = 7CB12DD52EA6C85000EB4F94 /* FeelingsWidgetExtension */;
