@@ -8,6 +8,7 @@ import SwiftUI
 
 struct FeelingActivateScreen: View {
     @State var viewModel: FeelingScreenViewModel
+    
     var body: some View {
         Form {
             Section(header: Text("Emotions").font(.largeTitle).foregroundColor(.primary)) {
@@ -19,6 +20,7 @@ struct FeelingActivateScreen: View {
                             bottle: feeling.image,
                             feeling: ProductsIdentifiers.feelingsToString(feeling: feeling.feeling),
                             timeInSeconds: feeling.timeInSeconds,
+                            isActive: feeling.isActive,
                             onActivate: feeling.onActivate
                         )
                     }

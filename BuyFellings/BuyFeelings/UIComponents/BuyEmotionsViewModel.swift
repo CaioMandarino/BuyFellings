@@ -82,7 +82,7 @@ final class BuyEmotionsViewModel: ObservableObject {
             if let element = allEntities.first(where: { $0.name == product.rawValue }) {
                 element.duration += 60
                 databaseService.update(element: element)
-            } else {
+            } else if ProductsIdentifiers.feelingsToCategory(for: product) != .subscription {
                 databaseService.add(element: PurchasedFeelingsModel(id: UUID(), name: product.rawValue, duration: 60))
             }
         }

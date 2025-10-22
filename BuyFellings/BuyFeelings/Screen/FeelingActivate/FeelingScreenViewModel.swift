@@ -16,13 +16,41 @@ final class FeelingScreenViewModel {
     var subscriptions: [SubscriptionModel] = [] // isso aqui tem vir do database tbm
     
     private let databaseManager: any DatabaseProtocol
+    private let paymentService: any StoreKitProtocol
     private var cancellables: Set<AnyCancellable> = []
     
-    init(databaseManager: any DatabaseProtocol) {
+    init(databaseManager: any DatabaseProtocol, paymentService: any StoreKitProtocol) {
+        self.paymentService = paymentService
         self.databaseManager = databaseManager
         getModels(databaseManager: databaseManager)
         observableDataBase()
+        Task {
+            await getSubscriptions()
+        }
     }
+    
+    private func getSubscriptions() async {
+        await paymentService.publisherPurchaseProducts
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] products in
+                guard let self else { return }
+                
+                var newElements: [SubscriptionModel] = []
+                
+                for product in products {
+                    if ProductsIdentifiers.feelingsToCategory(for: product) != .subscription { continue }
+                    let name = ProductsIdentifiers.feelingsToString(feeling: product)
+                    
+                    newElements.append(SubscriptionModel(title: name))
+                }
+                
+                subscriptions = newElements
+                
+            }
+            .store(in: &cancellables)
+    }
+    
+    
     
     func observableDataBase() {
         databaseManager.databaseChangePublisher
@@ -37,15 +65,16 @@ final class FeelingScreenViewModel {
     func getModels (databaseManager: any DatabaseProtocol) {
         var allPurchased: [FeelingActivateModel] = []
         let purchaseFeelings: [PurchasedFeelingsModel] = databaseManager.getAllElements()
+        
         for purchaseFeeling in purchaseFeelings {
             guard let feeling = ProductsIdentifiers(rawValue: purchaseFeeling.name) else { continue }
-            let item = FeelingActivateModel(feeling: feeling, timeInSeconds: "") {
+            let item = FeelingActivateModel(feeling: feeling, timeInSeconds: "\(purchaseFeeling.duration)", isActive: purchaseFeeling.isActive) {
                 purchaseFeeling.isActive = true
                 databaseManager.update(element: purchaseFeeling)
             }
             allPurchased.append(item)
         }
-        
+        allPurchased.sort { $0.feeling.rawValue < $1.feeling.rawValue }
         feelingModels = allPurchased
     }
 }

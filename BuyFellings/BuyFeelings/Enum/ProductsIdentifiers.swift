@@ -40,6 +40,11 @@ enum ProductsIdentifiers: String, CaseIterable {
     case companionship  = "com.CaioMandarino.BuyFellings.seasonal.companionship"
     case fun            = "com.CaioMandarino.BuyFellings.seasonal.fun"
     
+    //MARK: - Especial Hearts
+    //    case brokenHeart    = "com.CaioMandarino.BuyFellings.Broken.Heart"
+    //    case halloweenHeart = "com.CaioMandarino.BuyFellings.Halloween.Heart"
+    //    case crownedHeart   = "com.CaioMandarino.BuyFellings.Crowned.Heart"
+    //    case wingsHeart     = "com.CaioMandarino.BuyFellings.Wings.Heart"
     
     enum Categories {
         case badFeelings

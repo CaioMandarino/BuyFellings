@@ -387,6 +387,86 @@
       "productID" : "com.CaioMandarino.BuyFellings.seasonal.paranoia",
       "referenceName" : "Paranoia",
       "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "02478973",
+      "localizations" : [
+        {
+          "description" : "My little broken heart",
+          "displayName" : "Broken Heart",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Meu pequeno coração quebrado",
+          "displayName" : "Coração quebrado",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.Broken.Heart",
+      "referenceName" : "Broken Heart",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "7D82AFDD",
+      "localizations" : [
+        {
+          "description" : "My little heart with wings",
+          "displayName" : "Heart with wings",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Meu pequeno coração com asas",
+          "displayName" : "Coração com asas",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.Wings.Heart",
+      "referenceName" : "Heart with wings",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "C88BC560",
+      "localizations" : [
+        {
+          "description" : "My little scary heart",
+          "displayName" : "Halloween Heart",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Meu pequeno coração assustador",
+          "displayName" : "Coração de halloween",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.Halloween.Heart",
+      "referenceName" : "Halloween heart",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "1C68482E",
+      "localizations" : [
+        {
+          "description" : "My little crowned heart",
+          "displayName" : "Crowned heart",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Meu pequeno coração coroado",
+          "displayName" : "Coração coroado",
+          "locale" : "pt_BR"
+        }
+      ],
+      "productID" : "com.CaioMandarino.BuyFellings.Crowned.Heart",
+      "referenceName" : "Crowned heart",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {
