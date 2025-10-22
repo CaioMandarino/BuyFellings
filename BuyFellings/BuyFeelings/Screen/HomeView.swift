@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.scenePhase) var scenePhase
     @ObservedObject var viewModel: HomeViewModel
-    @State private var feelingPhase = ""
     
     var body: some View {
         NavigationStack {
@@ -27,16 +26,21 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Text(feelingPhase.isEmpty ? "Thinking..." : feelingPhase)
+                Text(viewModel.feelingPhase.isEmpty ? "Thinking..." : viewModel.feelingPhase)
                     .font(.title3)
                 
+                if viewModel.showEditMode {
+                    EditHeartView(viewModel: viewModel.createEditHeartViewModel())
+                }
+                
                 Spacer()
+                
             }
             .padding()
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("", systemImage: "pencil") {
-                        
+                    Button("Heart View", systemImage: viewModel.showEditMode ? "xmark": "pencil") {
+                        viewModel.showEditMode.toggle()
                     }
                 }
             }
@@ -46,9 +50,9 @@ struct HomeView: View {
                     .opacity(0.5)
             }
             .task {
-                feelingPhase = ""
+                viewModel.feelingPhase = ""
                 guard let feelingPhase = try? await viewModel.getFeelingPhrase() else { return }
-                self.feelingPhase = feelingPhase
+                viewModel.feelingPhase = feelingPhase
                 
                 await requestPermission()
             }
