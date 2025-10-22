@@ -19,12 +19,12 @@ struct BuyFeelingsTabView: View {
                 HomeView(viewModel: homeViewModel)
             }
             
-            Tab("Buy", systemImage: "heart.fill") {
+            Tab("Buy", systemImage: "bag.fill") {
                 BuyEmotionsView(viewModel: buyEmotionsViewModel)
 //                ContentView(viewModel: contentViewModel)
             }
             
-            Tab("Active", systemImage: "heart.fill") {
+            Tab("Active", systemImage: "play.circle.fill") {
                 FeelingActivateScreen(viewModel: feelingScreenViewModel)
             }
         }
