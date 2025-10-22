@@ -49,6 +49,7 @@ enum ProductsIdentifiers: String, CaseIterable {
     enum Categories {
         case badFeelings
         case goodFeelings
+        case seasonPass
         case sessionBadFeelings
         case sessionGoodFeelings
         case subscription
@@ -67,6 +68,8 @@ enum ProductsIdentifiers: String, CaseIterable {
             return [.creativity, .fun, .companionship]
         case .subscription:
             return [.premiumMonthly, .premiumQuarterly, .premiumYearly, .season]
+        case .seasonPass:
+            return [.season]
         case .hearts:
             return [.brokenHeart, .halloweenHeart, .crownedHeart, .wingsHeart]
         }
@@ -83,8 +86,10 @@ enum ProductsIdentifiers: String, CaseIterable {
             return .sessionBadFeelings
         case .creativity, .fun, .companionship:
             return .sessionGoodFeelings
-        case .premiumMonthly, .premiumQuarterly, .premiumYearly, .season:
+        case .premiumMonthly, .premiumQuarterly, .premiumYearly:
             return .subscription
+        case .season:
+            return .seasonPass
         case .brokenHeart, .halloweenHeart, .crownedHeart, .wingsHeart:
             return .hearts
         }
