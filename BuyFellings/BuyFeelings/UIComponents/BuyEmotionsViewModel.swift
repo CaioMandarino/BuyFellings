@@ -57,8 +57,8 @@ final class BuyEmotionsViewModel: ObservableObject {
         }
     }
     
-    private func haveSeason(for purchedProducts: Set<ProductsIdentifiers>) -> Bool {
-        return purchedProducts.contains { productsIdentifiers in
+    private func haveSeason(for purchasedProducts: Set<ProductsIdentifiers>) -> Bool {
+        return purchasedProducts.contains { productsIdentifiers in
             return ProductsIdentifiers.feelingsToCategory(for: productsIdentifiers) == .seasonPass
         }
     }
@@ -93,12 +93,15 @@ final class BuyEmotionsViewModel: ObservableObject {
         let allEntities: [PurchasedFeelingsModel] = databaseService.getAllElements()
         
         if status == .success {
+            let category = ProductsIdentifiers.feelingsToCategory(for: product)
+            
             if let element = allEntities.first(where: { $0.name == product.rawValue }) {
+                print("Problema 1")
                 element.duration += 60
                 databaseService.update(element: element)
-            } else if ProductsIdentifiers.feelingsToCategory(for: product) != .subscription {
+            } else if category != .subscription && category != .seasonPass  {
                 databaseService.add(element: PurchasedFeelingsModel(id: UUID(), name: product.rawValue, duration: 60))
-            } else if product == .season {
+            } else if category == .seasonPass {
                 userHavePremiumSession = true
             }
         }

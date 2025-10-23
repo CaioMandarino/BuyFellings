@@ -5,6 +5,7 @@ struct CardSubscriptionComponent: View {
     @ObservedObject var viewModel: BuyEmotionsViewModel
     
     let item: CardItem
+    let haveBuy: Bool
     
     // MARK: - Computed property para o banner
     var bannerName: String {
@@ -29,7 +30,7 @@ struct CardSubscriptionComponent: View {
                 .clipped()
             
             // Botão no canto inferior esquerdo
-            Button("Subscribe now") {
+            Button(haveBuy ? "Owned" : "Subscribe now") {
                 Task {
                     await viewModel.purchase(product: item.productID)
                 }

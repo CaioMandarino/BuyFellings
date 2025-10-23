@@ -49,7 +49,7 @@ struct CardComponentCarousel: View {
         Section {
             // Banner fixo usando o CardSubscriptionComponent
             if let item = items.first(where: { $0.productID == .premiumMonthly }) {
-                CardSubscriptionComponent(viewModel: viewModel, item: item)
+                CardSubscriptionComponent(viewModel: viewModel, item: item, haveBuy: viewModel.userHavePremium)
                     .frame(width: 340, height: 130)
                     .frame(maxWidth: .infinity)
             }
@@ -107,7 +107,7 @@ struct CardComponentCarousel: View {
         Section {
             // Banner fixo usando o CardSubscriptionComponent
             if let item = items.first(where: { $0.productID == .season }) {
-                CardSubscriptionComponent(viewModel: viewModel, item: item)
+                CardSubscriptionComponent(viewModel: viewModel, item: item, haveBuy: viewModel.userHavePremiumSession)
                     .frame(width: 340, height: 130)
                     .frame(maxWidth: .infinity)
             }
