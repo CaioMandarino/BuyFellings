@@ -11,7 +11,8 @@ struct FeelingActivateScreen: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Emotions").font(.largeTitle).foregroundColor(.primary)) {
+            Section(header: Text("Emotions").font(.system(size: 28, weight: .bold, design: .monospaced))
+.foregroundColor(.primary)) {
                 if viewModel.feelingModels.isEmpty {
                     Text("No feelings purchased")
                 } else {
@@ -26,13 +27,15 @@ struct FeelingActivateScreen: View {
                     }
                 }
             }
-            Section(header: Text("Subscriptions").font(.largeTitle).foregroundColor(.primary)) {
+            Section(header: Text("Subscriptions").font(.system(size: 28, weight: .bold, design: .monospaced))
+.foregroundColor(.primary)) {
                 if viewModel.subscriptions.isEmpty {
                     Text("No subscriptions yet")
                 } else {
                     ForEach(viewModel.subscriptions) { subscription in
                         Text(subscription.title)
-                            .font(.headline)
+                            .font(.system(size: 28, weight: .bold, design: .monospaced))
+
                     }
                 }
             }

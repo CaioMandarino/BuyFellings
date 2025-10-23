@@ -40,13 +40,20 @@ enum ProductsIdentifiers: String, CaseIterable {
     case companionship  = "com.CaioMandarino.BuyFellings.seasonal.companionship"
     case fun            = "com.CaioMandarino.BuyFellings.seasonal.fun"
     
+    //MARK: - Especial Hearts
+        case brokenHeart    = "com.CaioMandarino.BuyFellings.Broken.Heart"
+        case halloweenHeart = "com.CaioMandarino.BuyFellings.Halloween.Heart"
+        case crownedHeart   = "com.CaioMandarino.BuyFellings.Crowned.Heart"
+        case wingsHeart     = "com.CaioMandarino.BuyFellings.Wings.Heart"
     
     enum Categories {
         case badFeelings
         case goodFeelings
+        case seasonPass
         case sessionBadFeelings
         case sessionGoodFeelings
         case subscription
+        case hearts
     }
     
     static func feelings(for category: Categories) -> [ProductsIdentifiers] {
@@ -61,6 +68,10 @@ enum ProductsIdentifiers: String, CaseIterable {
             return [.creativity, .fun, .companionship]
         case .subscription:
             return [.premiumMonthly, .premiumQuarterly, .premiumYearly, .season]
+        case .seasonPass:
+            return [.season]
+        case .hearts:
+            return [.brokenHeart, .halloweenHeart, .crownedHeart, .wingsHeart]
         }
     }
     
@@ -75,8 +86,12 @@ enum ProductsIdentifiers: String, CaseIterable {
             return .sessionBadFeelings
         case .creativity, .fun, .companionship:
             return .sessionGoodFeelings
-        case .premiumMonthly, .premiumQuarterly, .premiumYearly, .season:
+        case .premiumMonthly, .premiumQuarterly, .premiumYearly:
             return .subscription
+        case .season:
+            return .seasonPass
+        case .brokenHeart, .halloweenHeart, .crownedHeart, .wingsHeart:
+            return .hearts
         }
     }
     
@@ -126,6 +141,14 @@ enum ProductsIdentifiers: String, CaseIterable {
             return "Premium Monthly"
         case .season:
             return "Season"
+        case .brokenHeart:
+            return "BrokenHeart"
+        case .halloweenHeart:
+            return "HalloweenHeart"
+        case .crownedHeart:
+            return "CrownHeart"
+        case .wingsHeart:
+            return "WingsHeart"
         }
     }
     
@@ -175,6 +198,14 @@ enum ProductsIdentifiers: String, CaseIterable {
             return "Premium Monthly"
         case .season:
             return "Season"
+        case .brokenHeart:
+            return "BrokenHeart"
+        case .halloweenHeart:
+            return "HalloweenHeart"
+        case .crownedHeart:
+            return "CrownHeart"
+        case .wingsHeart:
+            return "WingsHeart"
         }
     }
 }

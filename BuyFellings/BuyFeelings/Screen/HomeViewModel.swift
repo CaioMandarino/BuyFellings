@@ -13,6 +13,8 @@ import SwiftUI
 final class HomeViewModel: ObservableObject {
     @Published var timeRemaining: TimeInterval
     @Published var feelingsColors: [Color] = []
+    @Published var feelingPhase = ""
+    @Published var showEditMode = false
     
     private let databaseService: any DatabaseProtocol
     private let foundationService: FMSessionConfiguration
@@ -139,6 +141,11 @@ final class HomeViewModel: ObservableObject {
             entity.duration -= timePass
             action?(entity)
         }
+    }
+    
+    func createEditHeartViewModel() -> EditHeartViewModel {
+        let paymentService = StoreKitManager()
+        return EditHeartViewModel(storeKitManager: paymentService, databaseService: databaseService)
     }
     
     deinit {

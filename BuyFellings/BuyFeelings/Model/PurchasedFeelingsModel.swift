@@ -21,3 +21,16 @@ final class PurchasedFeelingsModel {
         self.duration = duration
     }
 }
+
+@Model
+final class PurchasedHearts {
+    var id: UUID
+    var name: String
+    var isActive: Bool = false
+    
+    init(id: UUID, name: String, isActive: Bool = false) {
+        self.id = id
+        self.name = name
+        self.isActive = isActive
+    }
+}

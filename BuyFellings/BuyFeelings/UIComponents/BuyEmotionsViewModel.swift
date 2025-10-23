@@ -12,6 +12,7 @@ import Combine
 
 @MainActor
 final class BuyEmotionsViewModel: ObservableObject {
+   
     @Published var cards: [CardItem] = []
     @Published var userHavePremium: Bool = false
     @Published var userHavePremiumSession: Bool {
@@ -53,6 +54,12 @@ final class BuyEmotionsViewModel: ObservableObject {
     private func haveSubscription(for purchasedProducts: Set<ProductsIdentifiers>) -> Bool {
         return purchasedProducts.contains { productsIdentifiers in
             return ProductsIdentifiers.feelingsToCategory(for: productsIdentifiers) == .subscription
+        }
+    }
+    
+    private func haveSeason(for purchedProducts: Set<ProductsIdentifiers>) -> Bool {
+        return purchedProducts.contains { productsIdentifiers in
+            return ProductsIdentifiers.feelingsToCategory(for: productsIdentifiers) == .seasonPass
         }
     }
     

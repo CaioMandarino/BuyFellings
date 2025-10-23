@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.scenePhase) var scenePhase
     @ObservedObject var viewModel: HomeViewModel
-    @State private var feelingPhase = ""
+    @ObservedObject var viewModelHeart: EditHeartViewModel
     
     var body: some View {
         NavigationStack {
@@ -19,24 +19,28 @@ struct HomeView: View {
                 Text(viewModel.timeRemaining.formatTime())
                     .digitStyle(font: .largeTitle, value: Int(viewModel.timeRemaining))
     
-                Image("Heart")
+                Image(viewModelHeart.activeHeartName ?? "Heart")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding(.horizontal)
                     .breathingPulse()
                 
                 Spacer()
                 
-                Text(feelingPhase.isEmpty ? "Thinking..." : feelingPhase)
+                Text(viewModel.feelingPhase.isEmpty ? "Thinking..." : viewModel.feelingPhase)
                     .font(.title3)
                 
+                if viewModel.showEditMode {
+                    EditHeartView(viewModel: viewModelHeart)
+                }
+                
                 Spacer()
+                
             }
             .padding()
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("", systemImage: "pencil") {
-                        
+                    Button("Heart View", systemImage: viewModel.showEditMode ? "xmark": "pencil") {
+                        viewModel.showEditMode.toggle()
                     }
                 }
             }
@@ -46,9 +50,9 @@ struct HomeView: View {
                     .opacity(0.5)
             }
             .task {
-                feelingPhase = ""
+                viewModel.feelingPhase = ""
                 guard let feelingPhase = try? await viewModel.getFeelingPhrase() else { return }
-                self.feelingPhase = feelingPhase
+                viewModel.feelingPhase = feelingPhase
                 
                 await requestPermission()
             }
