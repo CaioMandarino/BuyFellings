@@ -11,16 +11,22 @@
 //  Created by Raquel Souza on 20/10/25.
 //
 
-import StoreKit
 import SwiftUI
 import Combine
-
+import StoreKit
 
 @MainActor
 final class EditHeartViewModel: ObservableObject {
     @Published var cards: [CardItem] = []
     
-    private var cancellable: Set<AnyCancellable> = [] //ou vc instancia com Set<AnyCancellable>() > generics "mais swifty de acordo com o Ragel"
+    // IDs dos corações comprados
+    @Published private(set) var purchasedHearts: Set<String> = []
+    // ID do coração ativo
+    @Published private(set) var activeHeartID: String?
+    // Nome do coração ativo
+    @Published private(set) var activeHeartName: String?
+
+    private var cancellable: Set<AnyCancellable> = []
     private let paymentService: any StoreKitProtocol
     private let databaseService: any DatabaseProtocol
     
@@ -30,52 +36,100 @@ final class EditHeartViewModel: ObservableObject {
         
         Task {
             cards = await loadProducts()
-
+            observePurchasedHearts()
         }
     }
     
-    
-//    func loadView(viewModel: BuyEmotionsViewModel) -> any View {
-//        EditHeartView(viewModel: viewModel, items: cards)
-//    }
-    
+    // MARK: - Carrega produtos
     private func loadProducts() async -> [CardItem] {
         var allCards: [CardItem] = []
-        let allProducts = ProductsIdentifiers.allCases
-        
-        for product in allProducts  {
-            let name = ProductsIdentifiers.feelingsToString(feeling: product)
-            let image = ProductsIdentifiers.feelingsToImage(feeling: product)
-            let price = try? await paymentService.price(product: product)
-            let category = ProductsIdentifiers.feelingsToCategory(for: product)
-            
-            let cardItem = CardItem(
-                name: name,
-                price: price ?? "N/A",
-                image: image,
-                category: category,
+        for product in ProductsIdentifiers.allCases {
+            let card = CardItem(
+                name: ProductsIdentifiers.feelingsToString(feeling: product),
+                price: (try? await paymentService.price(product: product)) ?? "N/A",
+                image: ProductsIdentifiers.feelingsToImage(feeling: product),
+                category: ProductsIdentifiers.feelingsToCategory(for: product),
                 productID: product
             )
-            
-            allCards.append(cardItem)
+            allCards.append(card)
         }
-        
         return allCards
     }
     
-    func purchase(product: ProductsIdentifiers) async {
-        let status = try? await paymentService.purchase(product: product)
-        
-        let allEntities: [PurchasedFeelingsModel] = databaseService.getAllElements()
-        
-        if status == .success {
-            if let element = allEntities.first(where: { $0.name == product.rawValue }) {
-                element.duration += 60
-                databaseService.update(element: element)
-            } else if ProductsIdentifiers.feelingsToCategory(for: product) != .hearts {
-                databaseService.add(element: PurchasedHearts(id: UUID(), name: product.rawValue))
-            }
+    // MARK: - Observa compras (igual das assinaturas)
+    private func observePurchasedHearts() {
+        Task {
+            await paymentService.publisherPurchaseProducts
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] purchasedProducts in
+                    guard let self else { return }
+                    
+                    // Filtra apenas os corações
+                    let hearts = purchasedProducts.filter { product in
+                        ProductsIdentifiers.feelingsToCategory(for: product) == .hearts
+                    }
+                    
+                    // Atualiza lista de IDs comprados
+                    purchasedHearts = Set(hearts.map { $0.rawValue })
+                    
+                    // Atualiza coração ativo do banco
+                    if let active = databaseService.getAllElements().first(where: { (element: PurchasedHearts) in element.isActive }) {
+                        activeHeartID = active.name
+                        activeHeartName = cards.first(where: { $0.productID.rawValue == active.name })?.name
+                    } else {
+                        activeHeartID = nil
+                        activeHeartName = nil
+                    }
+
+                }
+                .store(in: &cancellable)
         }
     }
-}
+    
+    // MARK: - Verificações para a UI
+    func isPurchased(_ item: CardItem) -> Bool {
+        purchasedHearts.contains(item.productID.rawValue)
+    }
+    
+    func isActive(_ item: CardItem) -> Bool {
+        activeHeartID == item.productID.rawValue
+    }
+    
+    // MARK: - Ativar coração
+    func activateHeart(_ item: CardItem) {
+        var hearts: [PurchasedHearts] = databaseService.getAllElements()
+        for i in hearts.indices {
+            hearts[i].isActive = (hearts[i].name == item.productID.rawValue)
+            databaseService.update(element: hearts[i])
+        }
+        // Atualiza estado ativo
+        activeHeartID = item.productID.rawValue
+        activeHeartName = item.name
+    }
 
+    // MARK: - Comprar coração
+    func purchase(product: ProductsIdentifiers) async {
+        guard let status = try? await paymentService.purchase(product: product), status == .success else { return }
+        
+        if ProductsIdentifiers.feelingsToCategory(for: product) == .hearts {
+            // Salva no banco se ainda não existe
+            let hearts: [PurchasedHearts] = databaseService.getAllElements()
+            if hearts.first(where: { (heart: PurchasedHearts) in heart.name == product.rawValue }) == nil {
+                databaseService.add(element: PurchasedHearts(id: UUID(), name: product.rawValue))
+            }
+        } else {
+            // Outros produtos (ex.: duração)
+            let allEntities: [PurchasedFeelingsModel] = databaseService.getAllElements()
+            if let element = allEntities.first(where: { (item: PurchasedFeelingsModel) in item.name == product.rawValue }) {
+                element.duration += 60
+                databaseService.update(element: element)
+            } else {
+                databaseService.add(element: PurchasedFeelingsModel(id: UUID(), name: product.rawValue, duration: 60))
+            }
+        }
+
+        
+        // Atualiza UI via publisher
+        observePurchasedHearts()
+    }
+}

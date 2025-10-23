@@ -12,13 +12,13 @@ struct BuyFeelingsTabView: View {
     let buyEmotionsViewModel: BuyEmotionsViewModel
 //    let contentViewModel: ContentViewModel
     let feelingScreenViewModel: FeelingScreenViewModel
-    
+    let viewModelHeart: EditHeartViewModel
     
     var body: some View {
         TabView {
             Tab("Home", systemImage: "heart.fill") {
 //                EditHeartView(viewModel: homeViewModel.createEditHeartViewModel())
-                HomeView(viewModel: homeViewModel)
+                HomeView(viewModel: homeViewModel, viewModelHeart: viewModelHeart)
             }
             
             Tab("Buy", systemImage: "bag.fill") {

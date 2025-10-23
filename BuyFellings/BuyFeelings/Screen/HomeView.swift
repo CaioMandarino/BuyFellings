@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.scenePhase) var scenePhase
     @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject var viewModelHeart: EditHeartViewModel
     
     var body: some View {
         NavigationStack {
@@ -18,10 +19,9 @@ struct HomeView: View {
                 Text(viewModel.timeRemaining.formatTime())
                     .digitStyle(font: .largeTitle, value: Int(viewModel.timeRemaining))
     
-                Image("Heart")
+                Image(viewModelHeart.activeHeartName ?? "Heart")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding(.horizontal)
                     .breathingPulse()
                 
                 Spacer()
@@ -30,7 +30,7 @@ struct HomeView: View {
                     .font(.title3)
                 
                 if viewModel.showEditMode {
-                    EditHeartView(viewModel: viewModel.createEditHeartViewModel())
+                    EditHeartView(viewModel: viewModelHeart)
                 }
                 
                 Spacer()
