@@ -15,13 +15,18 @@ final class BuyEmotionsViewModel: ObservableObject {
    
     @Published var cards: [CardItem] = []
     @Published var userHavePremium: Bool = false
-    @Published var userHaveSeason: Bool = false
+    @Published var userHavePremiumSession: Bool {
+        willSet {
+            UserDefaults.standard.set(newValue, forKey: "userHavePremiumSession")
+        }
+    }
     
     private var cancellable: Set<AnyCancellable> = [] //ou vc instancia com Set<AnyCancellable>() > generics "mais swifty de acordo com o Ragel"
     private let paymentService: any StoreKitProtocol
     private let databaseService: any DatabaseProtocol
     
     init(storeKitManager: any StoreKitProtocol, databaseService: any DatabaseProtocol) {
+        userHavePremiumSession = UserDefaults.standard.bool(forKey: "userHavePremiumSession")
         self.paymentService = storeKitManager
         self.databaseService = databaseService
         
@@ -34,29 +39,20 @@ final class BuyEmotionsViewModel: ObservableObject {
     private func observeSubscription() async {
         await paymentService.publisherPurchaseProducts
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] purchedProducts in
+            .sink { [weak self] purchasedProducts in
                 guard let self else { return }
-                
-                //Premium
-                if self.haveSubscripiton(for: purchedProducts) {
+                if self.haveSubscription(for: purchasedProducts) {
                     userHavePremium = true
                 } else {
                     userHavePremium = false
-                }
-                
-                //Season
-                if self.haveSeason(for: purchedProducts) {
-                    userHaveSeason = true
-                } else {
-                    userHaveSeason = false
                 }
                 
             }
             .store(in: &cancellable)
     }
     
-    private func haveSubscripiton(for purchedProducts: Set<ProductsIdentifiers>) -> Bool {
-        return purchedProducts.contains { productsIdentifiers in
+    private func haveSubscription(for purchasedProducts: Set<ProductsIdentifiers>) -> Bool {
+        return purchasedProducts.contains { productsIdentifiers in
             return ProductsIdentifiers.feelingsToCategory(for: productsIdentifiers) == .subscription
         }
     }
@@ -102,6 +98,8 @@ final class BuyEmotionsViewModel: ObservableObject {
                 databaseService.update(element: element)
             } else if ProductsIdentifiers.feelingsToCategory(for: product) != .subscription {
                 databaseService.add(element: PurchasedFeelingsModel(id: UUID(), name: product.rawValue, duration: 60))
+            } else if product == .season {
+                userHavePremiumSession = true
             }
         }
     }

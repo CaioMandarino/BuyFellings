@@ -20,6 +20,7 @@ final class HomeViewModel: ObservableObject {
     private let foundationService: FMSessionConfiguration
     
     private var totalTime: TimeInterval
+    private var minimumTime: TimeInterval
     private var allActiveFeelings: [PurchasedFeelingsModel]
     
     private var taskUpdateRemaining: Task<Void, Never>? = nil
@@ -33,6 +34,7 @@ final class HomeViewModel: ObservableObject {
         self.allActiveFeelings = databaseService.getAllElements(predicate: predicate, sortBy: [])
         let durations = allActiveFeelings.map(\.duration)
         totalTime = durations.max { $0 < $1} ?? 0
+        minimumTime = durations.min { $0 < $1 } ?? 0
         timeRemaining = totalTime
         
         updateTimeRemaining()
@@ -63,6 +65,7 @@ final class HomeViewModel: ObservableObject {
                 
                 let durations = allActiveFeelings.map(\.duration)
                 totalTime = durations.max { $0 < $1} ?? 0
+                minimumTime = durations.min { $0 < $1 } ?? 0
                 timeRemaining = totalTime
                 
                 if timeRemaining > 0 {
@@ -88,10 +91,11 @@ final class HomeViewModel: ObservableObject {
     
     private func updateTimeRemaining() {
         taskUpdateRemaining = Task {
-            while timeRemaining > 0 {
+            while minimumTime > 0{
                 try? await Task.sleep(for: .seconds(1))
                 if Task.isCancelled { return }
                 timeRemaining -= 1
+                minimumTime -= 1
             }
             persistTimeRemaining()
         }

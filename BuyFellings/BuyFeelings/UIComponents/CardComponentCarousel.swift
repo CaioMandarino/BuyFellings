@@ -128,7 +128,7 @@ struct CardComponentCarousel: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
                     ForEach(items.filter({ $0.category == .sessionBadFeelings})) { item in
-                        if viewModel.userHaveSeason{
+                        if viewModel.userHavePremiumSession {
                             CardComponent(viewModel: viewModel, item: item)
                                 .frame(width: 340, height: 280)
                                 .padding(.vertical)
