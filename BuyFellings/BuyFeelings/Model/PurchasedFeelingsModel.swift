@@ -26,9 +26,11 @@ final class PurchasedFeelingsModel {
 final class PurchasedHearts {
     var id: UUID
     var name: String
+    var isActive: Bool = false
     
-    init(id: UUID, name: String) {
+    init(id: UUID, name: String, isActive: Bool = false) {
         self.id = id
         self.name = name
+        self.isActive = isActive
     }
 }

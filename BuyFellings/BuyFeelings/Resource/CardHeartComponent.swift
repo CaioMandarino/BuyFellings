@@ -30,15 +30,31 @@ struct CardHeartComponent: View {
                 
                 Spacer()
                 
-                Button("Buy Heart") {
-                    Task {
-                        await viewModel.purchase(product: item.productID)
-                    }
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(Color.sadness) // cor do botão
-
-            }
+                if viewModel.isPurchased(item) {
+                       if viewModel.isActive(item) {
+                           // Coração já ativo
+                           Text("Active")
+                               .font(.subheadline)
+                               .foregroundStyle(.green)
+                       } else {
+                           // Coração comprado, mas não ativo
+                           Button("Activate") {
+                               viewModel.activateHeart(item)
+                           }
+                           .buttonStyle(.borderedProminent)
+                           .tint(.pink)
+                       }
+                   } else {
+                       // Coração não comprado
+                       Button("Buy Heart") {
+                           Task {
+                               await viewModel.purchase(product: item.productID)
+                           }
+                       }
+                       .buttonStyle(.borderedProminent)
+                       .tint(Color.sadness)
+                   }
+               }
             .padding()
         }
         .background(.background.secondary)
