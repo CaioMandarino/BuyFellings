@@ -97,7 +97,7 @@ final class EditHeartViewModel: ObservableObject {
     
     // MARK: - Ativar coração
     func activateHeart(_ item: CardItem) {
-        var hearts: [PurchasedHearts] = databaseService.getAllElements()
+        let hearts: [PurchasedHearts] = databaseService.getAllElements()
         for i in hearts.indices {
             hearts[i].isActive = (hearts[i].name == item.productID.rawValue)
             databaseService.update(element: hearts[i])
