@@ -30,7 +30,7 @@ struct HomeView: View {
                     .font(.title3)
                 
                 if viewModel.showEditMode {
-                    EditHeartView(viewModel: viewModel.createEditHeartViewModel())
+                    EditHeartView(viewModel: viewModelHeart)
                 }
                 
                 Spacer()
