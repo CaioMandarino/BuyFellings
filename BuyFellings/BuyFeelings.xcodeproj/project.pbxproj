@@ -6,19 +6,91 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DAB903E32EAB2B9800C98C0E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB903E22EAB2B9800C98C0E /* WidgetKit.framework */; };
+		DAB903E52EAB2B9800C98C0E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB903E42EAB2B9800C98C0E /* SwiftUI.framework */; };
+		DAB903F62EAB2B9A00C98C0E /* FeelingsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DAB903E02EAB2B9800C98C0E /* FeelingsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAB903F42EAB2B9A00C98C0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAFD277E2EA01A0D003AB48E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAB903DF2EAB2B9800C98C0E;
+			remoteInfo = FeelingsWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DAB903FB2EAB2B9A00C98C0E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DAB903F62EAB2B9A00C98C0E /* FeelingsWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		DAB903E02EAB2B9800C98C0E /* FeelingsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FeelingsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB903E22EAB2B9800C98C0E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		DAB903E42EAB2B9800C98C0E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		DAB903FF2EAB2D2600C98C0E /* FeelingsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FeelingsWidgetExtension.entitlements; sourceTree = "<group>"; };
 		DAFD27862EA01A0D003AB48E /* BuyFeelings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyFeelings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DAB903F72EAB2B9A00C98C0E /* Exceptions for "FeelingsWidget" folder in "FeelingsWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DAB903DF2EAB2B9800C98C0E /* FeelingsWidgetExtension */;
+		};
+		DAB903FD2EAB2C3700C98C0E /* Exceptions for "BuyFeelings" folder in "FeelingsWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Enum/ProductsIdentifiers.swift,
+				Enum/Shared.swift,
+			);
+			target = DAB903DF2EAB2B9800C98C0E /* FeelingsWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		DAB903E62EAB2B9800C98C0E /* FeelingsWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DAB903F72EAB2B9A00C98C0E /* Exceptions for "FeelingsWidget" folder in "FeelingsWidgetExtension" target */,
+			);
+			path = FeelingsWidget;
+			sourceTree = "<group>";
+		};
 		DAFD27882EA01A0D003AB48E /* BuyFeelings */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DAB903FD2EAB2C3700C98C0E /* Exceptions for "BuyFeelings" folder in "FeelingsWidgetExtension" target */,
+			);
 			path = BuyFeelings;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DAB903DD2EAB2B9800C98C0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB903E52EAB2B9800C98C0E /* SwiftUI.framework in Frameworks */,
+				DAB903E32EAB2B9800C98C0E /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAFD27832EA01A0D003AB48E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,10 +101,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DAB903E12EAB2B9800C98C0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAB903E22EAB2B9800C98C0E /* WidgetKit.framework */,
+				DAB903E42EAB2B9800C98C0E /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DAFD277D2EA01A0D003AB48E = {
 			isa = PBXGroup;
 			children = (
+				DAB903FF2EAB2D2600C98C0E /* FeelingsWidgetExtension.entitlements */,
 				DAFD27882EA01A0D003AB48E /* BuyFeelings */,
+				DAB903E62EAB2B9800C98C0E /* FeelingsWidget */,
+				DAB903E12EAB2B9800C98C0E /* Frameworks */,
 				DAFD27872EA01A0D003AB48E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				DAFD27862EA01A0D003AB48E /* BuyFeelings.app */,
+				DAB903E02EAB2B9800C98C0E /* FeelingsWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +133,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DAB903DF2EAB2B9800C98C0E /* FeelingsWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAB903F82EAB2B9A00C98C0E /* Build configuration list for PBXNativeTarget "FeelingsWidgetExtension" */;
+			buildPhases = (
+				DAB903DC2EAB2B9800C98C0E /* Sources */,
+				DAB903DD2EAB2B9800C98C0E /* Frameworks */,
+				DAB903DE2EAB2B9800C98C0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DAB903E62EAB2B9800C98C0E /* FeelingsWidget */,
+			);
+			name = FeelingsWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = FeelingsWidgetExtension;
+			productReference = DAB903E02EAB2B9800C98C0E /* FeelingsWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		DAFD27852EA01A0D003AB48E /* BuyFeelings */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAFD27912EA01A0E003AB48E /* Build configuration list for PBXNativeTarget "BuyFeelings" */;
@@ -55,10 +162,12 @@
 				DAFD27822EA01A0D003AB48E /* Sources */,
 				DAFD27832EA01A0D003AB48E /* Frameworks */,
 				DAFD27842EA01A0D003AB48E /* Resources */,
+				DAB903FB2EAB2B9A00C98C0E /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DAB903F52EAB2B9A00C98C0E /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				DAFD27882EA01A0D003AB48E /* BuyFeelings */,
@@ -80,6 +189,9 @@
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					DAB903DF2EAB2B9800C98C0E = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
 					DAFD27852EA01A0D003AB48E = {
 						CreatedOnToolsVersion = 26.0.1;
 					};
@@ -100,11 +212,19 @@
 			projectRoot = "";
 			targets = (
 				DAFD27852EA01A0D003AB48E /* BuyFeelings */,
+				DAB903DF2EAB2B9800C98C0E /* FeelingsWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DAB903DE2EAB2B9800C98C0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAFD27842EA01A0D003AB48E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +235,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DAB903DC2EAB2B9800C98C0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAFD27822EA01A0D003AB48E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +251,77 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DAB903F52EAB2B9A00C98C0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAB903DF2EAB2B9800C98C0E /* FeelingsWidgetExtension */;
+			targetProxy = DAB903F42EAB2B9A00C98C0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		DAB903F92EAB2B9A00C98C0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FeelingsWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 23AK7X9G78;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FeelingsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FeelingsWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CaioMandarino.BuyFeelings.FeelingsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DAB903FA2EAB2B9A00C98C0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FeelingsWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 23AK7X9G78;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FeelingsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FeelingsWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CaioMandarino.BuyFeelings.FeelingsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DAFD278F2EA01A0E003AB48E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -251,6 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BuyFeelings/BuyFeelings.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 23AK7X9G78;
@@ -267,7 +465,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.CaioMandarino.BuyFellings;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CaioMandarino.BuyFeelings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -284,6 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BuyFeelings/BuyFeelings.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 23AK7X9G78;
@@ -300,7 +499,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.CaioMandarino.BuyFellings;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CaioMandarino.BuyFeelings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -315,6 +514,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DAB903F82EAB2B9A00C98C0E /* Build configuration list for PBXNativeTarget "FeelingsWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB903F92EAB2B9A00C98C0E /* Debug */,
+				DAB903FA2EAB2B9A00C98C0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DAFD27812EA01A0D003AB48E /* Build configuration list for PBXProject "BuyFeelings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
