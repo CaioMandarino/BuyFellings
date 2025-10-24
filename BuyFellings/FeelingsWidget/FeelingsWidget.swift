@@ -58,7 +58,7 @@ struct FeelingsWidgetEntryView : View {
         
     
         VStack(spacing: 4) {
-            Text("Seu Coração Está Sentindo:")
+            Text("Your Heart Is Feeling:")
                 .font(.caption)
                 .foregroundColor(.white.opacity(0.8))
             
@@ -69,7 +69,7 @@ struct FeelingsWidgetEntryView : View {
                     .foregroundColor(.white)
             } else {
 
-                Text("Nada")
+                Text("Nothing")
                     .font(.system(.title3, design: .rounded, weight: .bold))
                     .foregroundColor(.white)
             }
