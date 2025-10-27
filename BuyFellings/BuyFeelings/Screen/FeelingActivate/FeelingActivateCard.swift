@@ -33,7 +33,7 @@ struct FeelingActivateCard: View {
                 ZStack(alignment: .center) {
                     RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                         .frame(width: 90, height: 40)
-                    Text("Ativar")
+                    Text("Active")
                         .foregroundStyle(Color(.white))
                 }
             }
